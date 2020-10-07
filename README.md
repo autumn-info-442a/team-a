@@ -1,17 +1,17 @@
-# INFO 442 Team name: Accessitech
+# INFO 442 Team Name: Accessitech
 
-### Team members and roles:
+### Team Members and Roles:
 - Suyash Ahuja, PM
 - Ashlea Lau, Dev
 - Joanna Tan, Design
 
-### Mission statement: 
+### Mission Statement: 
 To close the digital divide for accessible technology.
 
-### HowToo strategy feedback: 
+### HowToo Strategy Feedback: 
 Besides the steps, it would have been beneficial to have video instructions too. if not that, maybe some visuals for reference. Introductions for editing the repository should have been provided
 
-### Problem statement: 
+### Problem Statement: 
 
 How can we connect device donors to organizations (schools, clinics, etc) so that we can help low income individuals achieve access to technology?
 
