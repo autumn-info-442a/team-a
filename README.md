@@ -1,9 +1,9 @@
 # Team name: Accessitech
 
 ### Team members and roles:
-Suyash Ahuja, PM
-Ashlea Lau, Dev
-Joanna Tan, Design
+- Suyash Ahuja, PM
+- Ashlea Lau, Dev
+- Joanna Tan, Design
 
 ### Mission statement: 
 To close the digital divide for accessible technology.
