@@ -1,7 +1,4 @@
-# team-a
-INFO 442 Team A
-
-## Team name: Accessitech
+# Team name: Accessitech
 
 ### Team members and roles:
 Suyash Ahuja, PM
