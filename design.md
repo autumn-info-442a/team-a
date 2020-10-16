@@ -2,7 +2,7 @@
 
 The high cost of electronic devices makes them inaccessible to many lower income minority groups. The Stanford computer science department recognizes and defines this digital divide as “the growing gap between the underprivileged members of society… who do not have access to computers or the internet; and the wealthy, middle-class, and young Americans living in urban and suburban areas who have access” (Digital Divide). In an increasingly electronic world, this further puts individuals in these groups at a disadvantage when it comes to medical health, educational, and occupational opportunities, since they don’t have access to necessary electronic devices. Existing solutions are largely online and donate directly to low income individuals, but are inaccessible to the population they are trying to help since these people may not have access to the internet or to devices to apply. Moreover, donors cannot donate directly to organizations. How can we connect device donors to organizations (schools, clinics, etc) so that we can help low income individuals achieve access to technology?
 https://github.com/autumn-info-442a/team-a
-![alt text](https://github.com/autumn-info-442a/team-a/blob/main/1landing.jpg?raw=true)
+![alt text](https://github.com/autumn-info-442a/team-a/main/1landing.jpg?raw=true)
 
 ## Solution
 Accessitech aims to develop a solution by acting as a bridge between technology device seekers and donors. We strive to make electronic devices and other technology accessible by making it easy to connect device donors directly to organizations that have mission statements that align with their values. Through this method, we hope to help people in need get access to technology.
