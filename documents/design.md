@@ -5,7 +5,7 @@ The high cost of electronic devices makes them inaccessible to many lower income
 ## Solution
 Accessitech aims to develop a solution by acting as a bridge between technology device seekers and donors. We strive to make electronic devices and other technology accessible by making it easy to connect device donors directly to organizations that have mission statements that align with their values. Through this method, we hope to help people in need get access to technology.
 
-![Landing page](1Landing.jpg)
+![Landing page](../imgs/1Landing.jpg)
 
 ### Landing page:
 On the landing page, the user is greeted with the goal of Accesitech - we want to help them find an organization they can donate their devices to or help their organization meet their device donation goals. They then have two interaction choices where they can choose to donate their device or submit their organization to set up a device donation goal for their organization. When the user clicks “Donate”, they will be moved to a page where they can view different organizations to help them make an informed decision about what organizations they want to donate to. On the other hand, when the user clicks on “Submit an organization”, they will be redirected to a form on the site where they will fill out information about their organization and devices that they need. This page allows the user to easily determine which part of the site they need to navigate to.
