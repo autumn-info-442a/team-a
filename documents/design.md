@@ -15,7 +15,7 @@ On the landing page, the user is greeted with the goal of Accesitech - we want t
 ![Browse organizations page before filter](../imgs/2Orgs.jpg)
 _Browse organization page before filter_
 
-![Browse organizations page after filter](../imgs/2.5OrgsFilter)
+![Browse organizations page after filter](../imgs/2.5OrgsFilter.png)
 _Browse organization page after filter_
 
 ### Browse organizations page:
@@ -29,7 +29,7 @@ Once a donor selects the “Learn more” button for a specific organization, th
 ![Device donation page](../imgs/4DevDonation.jpg)
 _Example of valid and complete device donation form that can be submitted_
 
-![Device donation page with errors](../imgs/4.5DevDonationError)
+![Device donation page with errors](../imgs/4.5DevDonationError.png)
 _Example of device donation form with errors that cannot be submitted_
 
 ### Device donation page:
