@@ -12,8 +12,11 @@ Accessitech aims to develop a solution by acting as a bridge between technology 
 On the landing page, the user is greeted with the goal of Accesitech - we want to help them find an organization they can donate their devices to or help their organization meet their device donation goals. They then have two interaction choices where they can choose to browse organizations they can donate to or submit a device donation goal for their organization. When the user clicks “Browse organizations”, they will be moved to a page where they can view different organizations to help them make an informed decision about what organizations they want to donate to. On the other hand, when the user clicks on “Submit a goal”, they will be redirected to a form on the site where they will fill out information about their organization and devices that they need. This page allows the user to easily determine which part of the site they need to navigate to.
 
 
-![Organizations page](../imgs/2Orgs.jpg)
+![Browse organizations page before filter](../imgs/2Orgs.jpg)
 _Browse organization page before filter_
+
+![Browse organizations page after filter](../imgs/2.5OrgsFilter.jpg)
+_Browse organization page after filter_
 
 ### Browse organizations page:
 To start off, when a donor clicks on “Browse organizations” on the landing page they will be led to the organizations page where they will be able to find an organization that they want to donate to based on their values. They can search for an organization by it’s name directly, or use the drop down menus. When they click on the “Type” drop down menu, they will have the option to filter between health, education, occupation and military. In addition, the donor can further filter their results by using the “Sort by” drop down menu which has options of default, high to low donation progress reached, low to high donation progress reached, and by date posted. After these “Type” and “Sort by” choices are made and the user clicks on the “Search” button, the page will update with the filters the donor has chosen to help them easily narrow down and identify organizations that align with their values and help them make informed decisions about who they may want to donate to. When the donor clicks on “Learn more” they will be directed to the individual organization’s page to allow them to do more research on the organization to see if they are a good fit for them. Then when they click “Donate” they will be led to a form where they can fill out the devices they are wanting to donate. Additionally, once an organization meets their donation goal, their listing will be removed from this page. If the organization is still in need, they may submit another organization goal and a new listing for their organization will be displayed.
@@ -25,6 +28,9 @@ Once a donor selects the “Learn more” button for a specific organization, th
 
 ![Device donation page](../imgs/4DevDonation.jpg)
 _Example of valid and complete device donation form that can be submitted_
+
+![Device donation page with errors](../imgs/4.5DevDonationError.jpg)
+_Example of device donation form with errors that cannot be submitted_
 
 ### Device donation page:
 On the device donation page, the donor can see on the top of the page where they have decided to make a donation to. The donor must fill in the required information like first and last name, phone number, and the address. This page also asks the donor to add a device type and quantity of that particular device that the donor wants to donate. The add device portion will reset when they click “Add device” and they can add another device type they want to donate if they want to.
