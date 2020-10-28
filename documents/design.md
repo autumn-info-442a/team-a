@@ -15,21 +15,21 @@ On the landing page, the user is greeted with the goal of Accesitech - we want t
 ![Browse organizations page before filter](../imgs/2Orgs.jpg)
 _Browse organization page before filter_
 
-![Browse organizations page after filter](../imgs/2.5OrgsFilter.png)
+![Browse organizations page after filter](../imgs/3OrgsFilter.jpg)
 _Browse organization page after filter_
 
 ### Browse organizations page:
 To start off, when a donor clicks on “Browse organizations” on the landing page they will be led to the organizations page where they will be able to find an organization that they want to donate to based on their values. They can search for an organization by it’s name directly, or use the drop down menus. When they click on the “Type” drop down menu, they will have the option to filter between health, education, occupation and military. In addition, the donor can further filter their results by using the “Sort by” drop down menu which has options of default, high to low donation progress reached, low to high donation progress reached, and by date posted. After these “Type” and “Sort by” choices are made and the user clicks on the “Search” button, the page will update with the filters the donor has chosen to help them easily narrow down and identify organizations that align with their values and help them make informed decisions about who they may want to donate to. When the donor clicks on “Learn more” they will be directed to the individual organization’s page to allow them to do more research on the organization to see if they are a good fit for them. Then when they click “Donate” they will be led to a form where they can fill out the devices they are wanting to donate. Additionally, once an organization meets their donation goal, their listing will be removed from this page. If the organization is still in need, they may submit another organization goal and a new listing for their organization will be displayed.
 
-![Individual organization page](../imgs/3IndivOrg.jpg)
+![Individual organization page](../imgs/4IndivOrg.jpg)
 
 ### Individual organization page:
 Once a donor selects the “Learn more” button for a specific organization, they are taken to that individual organization’s page. On this page is the organization name, devices needed, and mission statement on the right hand side of the page, as well as the logo image and contact information (phone, email, address) on the left hand side of the page. These resources allow the donor to reach out to an organization if they have more questions. Below the contact information is a progress bar that shows how many devices out of the organization’s donation goal have been received, as well as a “Donate” button. When the donor clicks on “Donate” they will be directed to a form that they fill out with devices they are willing to donate.
 
-![Device donation page](../imgs/4DevDonation.jpg)
+![Device donation page](../imgs/5Donation.jpg)
 _Example of valid and complete device donation form that can be submitted_
 
-![Device donation page with errors](../imgs/4.5DevDonationError.png)
+![Device donation page with errors](../imgs/6DonationError.png)
 _Example of device donation form with errors that cannot be submitted_
 
 ### Device donation page:
@@ -40,12 +40,12 @@ In the beginning, the “Donation Summary” will have no device or quantities a
 If any of the form fields are invalid or incomplete, those portions will be highlighted in red and messages will appear next to them to guide the donor in correctly filling out the form. Once everything looks good and all the conditions are met, the donor clicks “Confirm donation” which will lead them to a confirmation page thanking them for their donation. The progress bar on the “Browse organizations” page will also update for the organization depending on the number of devices donated.
 
 
-![Device confirmation page](../imgs/5DevConfirm.jpg)
+![Device confirmation page](../imgs/7DonationConfirm.jpg)
 
 ### Device confirmation page:
 After clicking “Confirm donation” on the previous page, the website will now take the user to the device confirmation page. This page thanks the donor for their donation and gives them instructions on where to donate their device. There is also a full summary of the type and number of devices they want to donate and the option to cancel their donation for whatever reasons they might have. A message saying “Donation has been successfully canceled” will show below the donation summary if the “Cancel donation” button is clicked, and the button will disappear. Additionally, the progress bars will remove the amount of devices that were in the donation summary canceled. 
 
-![Submit an orgnazation page](../imgs/6SubmitOrg.jpg)
+![Submit an orgnazation page](../imgs/8SubmitOrg.jpg)
 
 ### Submit an organization page:
 As an organization, they can select the “Submit a goal” button from either the landing page or in the navigation bar at the top of the page to be taken to a page for submitting an organization goal. On this page, the organization can fill out the name and type of the organization they are, their contact information (location, phone, email), needed devices, donation goal, and mission statement. At the end of the form, the organization can then select the “Submit organization goal” button at the bottom of the page and be redirected to the “Browse organizations” page where a new listing will appear for that organization and its device needs. However, if any of the form fields are invalid or incomplete, those portions will be highlighted in red and messages will appear next to them to guide the organization in correctly filling out the form. Once the organization has submitted their goal, they will not be able to altar or remove their organization card. If their donation goal has been achieved, their organization card will be removed from the “Browse organizations” page and they may submit another goal.
