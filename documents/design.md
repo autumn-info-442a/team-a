@@ -29,7 +29,7 @@ Once a donor selects the “Learn more” button for a specific organization, th
 ![Device donation page](../imgs/5Donation.jpg)
 _Example of valid and complete device donation form that can be submitted_
 
-![Device donation page with errors](../imgs/6DonationError.png)
+![Device donation page with errors](../imgs/6DonationError.jpg)
 _Example of device donation form with errors that cannot be submitted_
 
 ### Device donation page:
