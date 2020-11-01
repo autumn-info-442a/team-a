@@ -2,7 +2,7 @@
 
 ## Views:
 
-- NavBarView
+- _**NavBarView**_
   - Responsibility: This component remains static on all pages and displays Accessitech’s branding and tabs navigating to other screens.
   - Resides: Client-side only
   - Other components:
@@ -12,7 +12,7 @@
     insert code
     ```
 
-- LandingPageView
+- _**LandingPageView**_
   - Responsibility: Displays information and relevant user actions. All actions navigate to separate screens.
   - Resides: Client-side only
   - Other components:
@@ -23,7 +23,7 @@
   insert code
   ```
 
-- SubmitOrganizationFormView
+- _**SubmitOrganizationFormView**_
   - Responsibility: Takes in information from organization about name of organization, type of organization, address, phone number, email, device needs, donation goal, short description of organization, and organization mission statement
   - Resides: Client-side only
   - Other components:
@@ -33,7 +33,7 @@
   insert code
   ```
 
-- BrowseOrganizationsView
+- _**BrowseOrganizationsView**_
   - Responsibility: Displays organizations that the user can donate to
   - Resides: Client-side only
   - Other components:
@@ -43,7 +43,7 @@
   insert code
   ```
     
-- OrganizationCardView
+- _OrganizationCardView_
   - Responsibility: Views and displays information about an organization to the user
   - Resides: Client-side and server-side
   - Other components:
@@ -54,7 +54,7 @@
   insert code
   ```
 
-- IndividualOrganizationView
+- _IndividualOrganizationView_
   - Responsibility: Views and displays information about an organization to the user
   - Resides: Client-side only
   - Other components:
@@ -64,7 +64,7 @@
   insert code
   ```
 
-- DonationFormView
+- _**DonationFormView**_
   - Responsibility: take in information about the donor such as first and last name, phone number, and address. It also takes in information about types of devices the donor is donating and the quantity
   - Resides: Client-side only
   - Other components:
@@ -74,7 +74,7 @@
   insert code
   ```
 
-- FormDropDownView
+- _**FormDropDownView**_
   - Responsibility: Displays a list of organization types and device types
   - Resides: Client-side only
   - Other components:
@@ -84,7 +84,7 @@
   insert code
   ```
 
-- FilterDropDownView
+- _**FilterDropDownView**_
   - Responsibility: Displays options for filtering and ordering search results
   - Resides: Client-side only
   - Other components:
@@ -96,7 +96,7 @@
 
 ## Models:
 
-- OrganizationMode
+- _**OrganizationMode**_
   - Responsibility: storing data from organization donation goal form such as name of organization, type of organization, address, phone number, email, device needs, donation goal, short description of organization, and organization mission statement
   - Resides: Server-side only
   - Other components:
@@ -106,7 +106,7 @@
   insert code
   ```
 
-- DonorDeviceModel
+- _**DonorDeviceModel**_
   - Responsibility: Stores data from the donation form such as first and last name, phone number, address, types of devices they are donating and the quantity of each being donated.
   - Resides: Server-side only
   - Other components:
@@ -118,7 +118,7 @@
 
 ## Controllers
 
-- DonationController
+- _**DonationController**_
   - Responsibility: communicates with donation device form to write responses to the questions
   - Resides: Client-side
   - Other components:
@@ -128,7 +128,7 @@
   insert code
   ```
 
-- OrganizationController
+- _**OrganizationController**_
   - Responsibility: communicates with organization goal form to write responses to the questions
   - Resides: Client-side
   - Other components
@@ -138,7 +138,7 @@
   insert code
   ```
 
-- DropDownController
+- _**DropDownController**_
   - Responsibility: communicates with dropdown menus to change what information is displayed to the user or passed to their respective model
   - Resides: Client-side
   - Other components:
