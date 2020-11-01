@@ -9,7 +9,17 @@
     - NavBarView communicates with UserController to determine user input, and alters display depending on that.
   - Stub:
     ```
-    insert code
+    class NavBar extends React.Component {
+      // TODO Implement actual component
+      render() {
+        return (
+          <NavBar>
+            <div><Link>Home</Link></div>
+            <div><Link>Browse</Link></div>
+            <div><Link>Submit</Link></div>
+          </NavBar>
+     }
+
     ```
 
 - _**LandingPageView**_
