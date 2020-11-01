@@ -2,12 +2,12 @@
 
 ## Views:
 
-- NavBarView
-  - Responsibility: This component remains static on all pages and displays Accessitech’s branding and tabs navigating to other screens.
-  - Resides: Client-side only
-  - Other components:
-    - NavBarView communicates with UserController to determine user input, and alters display depending on that.
-  - Stub:
+NavBarView
+- Responsibility: This component remains static on all pages and displays Accessitech’s branding and tabs navigating to other screens.
+- Resides: Client-side only
+- Other components:
+  - NavBarView communicates with UserController to determine user input, and alters display depending on that.
+- Stub:
   ```
   insert code
   ```
