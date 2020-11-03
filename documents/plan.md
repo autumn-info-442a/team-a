@@ -10,3 +10,24 @@ Suyash Ahuja, our PM, will be coordinating the work. This responsibility is defi
 - We will continue to use **Google Drive** to collaborate on any necessary documents, as well as agendas, because it is easily accessible to everyone, and allows for synchronous work. An alternative to this would be to work directly on GitHub, but this option is not as synchronized.
 - We will also use [**Monday**](https://accessitech.monday.com/boards/832283323) for task management, rather than Trello, because it allows us to keep track of and assign tasks to people with due dates without a subscription, unlike Trello. 
 - For code sharing, we will be using **Visual Studio Code**, because this is what the developer will be using to code the project, and it has an extension for code sharing. An alternative for this would be CodeShare, but this would be less convenient because the code would have to be copied over.
+
+## 3. Who will own components in your architecture?
+- Views: Ashlea (software dev) and Joanna (designer) will be responsible for the view components.
+- Models: Ashlea (software dev) will be responsible for the model components.
+- Controllers: Ashlea (software dev) will be responsible for the controller components.
+
+### Component Breakdown:
+- NavBarView: Joanna
+- LandingPageView: Joanna
+- SubmitOrganizationFormView: Ashlea
+- BrowseOrganizationsView: Ashlea
+- OrganizationCardView: Joanna
+- IndividualOrganizationView: Suyash
+- DonationFormView: Ashlea
+- FormDropDownView: Ashlea
+- FilterDropDownView: Ashlea
+- OrganizationModel: Ashlea
+- DonorDeviceModel: Ashlea
+- DonationController: Ashlea
+- OrganizationController: Ashlea
+- DropDownController: Ashlea
