@@ -1,2 +1,5 @@
-1. How will you coordinate you work?
+# Plan
+
+## 1. How will you coordinate you work?
+
 Suyash Ahuja, our PM, will be coordinating the work. This responsibility is defined by his role on the team. He will be in charge of task management, as well as preparing weekly to-do lists. Additionally, he will be checking in with each team member and their progress on their assigned tasks, and providing support for any kinds of difficulties that may come up. Our team will continue to meet during regularly scheduled class times on Mondays and Wednesdays from 3:30pm - 5:20pm. We will also have extra meeting times on Thursdays between 7:00pm - 8:00pm if needed. Suyash will also be responsible for planning agendas for these meetings.
