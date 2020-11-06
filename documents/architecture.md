@@ -5,8 +5,6 @@
 - _**NavBarView**_
   - Responsibility: This component remains static on all pages and displays Accessitech’s branding and tabs navigating to other screens.
   - Resides: Client-side only
-  - Other components:
-    - NavBarView communicates with UserController to determine user input, and alters display depending on that.
   - Stub:
     ```
     class NavBar extends Component() {
@@ -27,8 +25,7 @@
   - Responsibility: Displays information and relevant user actions. All actions navigate to separate screens.
   - Resides: Client-side only
   - Other components:
-    - Contains the NavBarView
-    - Does not interact with any controllers
+    - Contains the _NavBarView_
   - Stub:
     ```
     class LandingPage extends Component() {
@@ -42,10 +39,10 @@
     ```
 
 - _**SubmitOrganizationFormView**_
-  - Responsibility: Takes in information from organization about name of organization, type of organization, address, phone number, email, device needs, donation goal, short description of organization, and organization mission statement
+  - Responsibility: Takes in information about organization being submitted, including: name, type, address, phone number, email, device needs, donation goal, description, and mission statement
   - Resides: Client-side only
   - Other components:
-    - SubmitOrganizationForm can ask the OrganizationModel to store the information it is taking in
+    - Communicates with the _OrganizationController_ to pass through submitted form and its responses from user
   - Stub:
   ```
   class submitOrganizationForm extends Component() {
@@ -68,9 +65,10 @@
 
 - _**BrowseOrganizationsView**_
   - Responsibility: Displays organizations that the user can donate to
-  - Resides: Client-side only
+  - Resides: Client-side and server-side
   - Other components:
-    - Communicates with DropDownController to filter organization cards
+    - Communicates with the _OrganizationController_ to pull information on which organizations to display from the OrganizationModel
+    - Communicates with the _OrganizationController_ to filter which organizations will be displayed to the user
   - Stub:
     ```
     class BrowseOrganizations extends Component() {
@@ -92,11 +90,10 @@
     ```
     
 - _OrganizationCardView_
-  - Responsibility: Views and displays information about an organization to the user
-  - Resides: Client-side and server-side
+  - Responsibility: Displays information about a specific organization to the user on the browse page
+  - Resides: Client-side only
   - Other components:
-    - OrganizationCardView views information that OrganizationModel stores such as organization name, type of organization, and short description of organization.
-    - OrganizationCardView displays information that OrganizationModel stores such as organization name, type of organization, and short description of organization.
+    - Communicates with _OrganizationController_ to pull information about the organization from the _OrganizationModel_ to display to the user
   - Stub:
   ```
   class OrganizationCard extends Component() {
@@ -120,10 +117,10 @@
   ```
 
 - _IndividualOrganizationView_
-  - Responsibility: Views and displays information about an organization to the user
+  - Responsibility: Displays information about a specific organization to the user
   - Resides: Client-side only
   - Other components:
-    - IndividualOrganizationView displays information that OrganizationModel stores such as organization name, devices needed, mission statement, phone number, email, and address.
+    - Communicates with _OrganizationController_ to pull information about the organization from the _OrganizationModel_ to display to the user
   - Stub:
   ```
   class OrganizationCard extends Component() {
@@ -147,10 +144,10 @@
   ```
 
 - _**DonationFormView**_
-  - Responsibility: take in information about the donor such as first and last name, phone number, and address. It also takes in information about types of devices the donor is donating and the quantity
+  - Responsibility: Takes in information about the donor such as first and last name, phone number, and address. It also takes in information about types of devices the donor is donating and the quantity
   - Resides: Client-side only
   - Other components:
-    - DonationForm can ask the DonorDeviceModel to store information about the donor’s first and last name, phone number, address, types of device and quantity of each device type being donated
+    - Communicates with the _DonationController_ to submit completed donation forms to be stored in the _DonationModel_
   - Stub:
   ```
   class DonationForm extends Component() {
@@ -171,48 +168,15 @@
 
   ```
 
-- _**FormDropDownView**_
-  - Responsibility: Displays a list of organization types and device types
-  - Resides: Client-side only
-  - Other components:
-    - FormDropDownView writes information to the DropDownController
-  - Stub:
-  ```
-  class FormDropDown extends Component() {
-	// TODO Implement actual component
-    render() {
-      return (
-    <input></input>
-      )
-    }
-  }
-
-  ```
-
-- _**FilterDropDownView**_
-  - Responsibility: Displays options for filtering and ordering search results
-  - Resides: Client-side only
-  - Other components:
-    - FilterDropDownView communicates with the DropDownController to change the information displayed to the user
-  - Stub:
-  ```
-  class FilterDropDown extends Component() {
-	// TODO Implement actual component
-    render() {
-      return (
-        <input></input>
-      )
-    }
-  }
-  ```
-
 ## Models:
 
-- _**OrganizationMode**_
-  - Responsibility: storing data from organization donation goal form such as name of organization, type of organization, address, phone number, email, device needs, donation goal, short description of organization, and organization mission statement
+- _**OrganizationModel**_
+  - Responsibility: Stores data about submitted organizations. Data includes organization name, type, address, phone number, email, device needs, donation goal, short description, and mission statement
   - Resides: Server-side only
   - Other components:
-    - OrganizatonModel stores information that SubmitOrganizationFormView takes in about an organization
+    - Communicates with the _OrganizationController_ to store all submitted organizations and respective data
+    - Communicates with the _OrganizationController_ to send data for the appropriate organizations to be displayed to the user
+    - Communicates with the _DonationController_ to update an organization’s donation goal percentage (donations received / donation goal)
   - Stub:
   ```
   class Organization extends Component {
@@ -235,10 +199,10 @@
   ```
 
 - _**DonorDeviceModel**_
-  - Responsibility: Stores data from the donation form such as first and last name, phone number, address, types of devices they are donating and the quantity of each being donated.
+  - Responsibility: Stores data from submitted donation forms. Data includes the donor’s first and last name, phone number, address, device types, and quantity.
   - Resides: Server-side only
   - Other components:
-    - DonorDeviceModel stores information that DonationFormView takes in about the donor and the devices they want to donate
+    - Communicates with the _DonationController_ to store all submitted donations and respective data
   - Stub:
   ```
   class DonorDevice extends Component {
@@ -259,13 +223,14 @@
 
   ```
 
-## Controllers
+## Controllers:
 
 - _**DonationController**_
-  - Responsibility: communicates with donation form to write responses to the questions
-  - Resides: Client-side
+  - Responsibility: Submits completed donation forms to be stored, and updates donation goal percentages.
+  - Resides: Client-side and server-side
   - Other components:
-    - DonorController communicates with DonationFormView to submit information about their first and last name, phone number, address, types of devices they are donating and the quantity
+    - Communicates with _DonorDeviceModel_ to to store all submitted donations and respective data, including: donor’s first and last name, phone number, address, device types, and quantity
+    - Communicates with _OrganizationModel_ to update an organization’s donation goal percentage (donations received / donation goal)
   - Stub:
   ```
     // Handles storing information inputted by user through the DonationForm
@@ -284,10 +249,16 @@
   ```
 
 - _**OrganizationController**_
-  - Responsibility: communicates with organization goal form to write responses to the questions
-  - Resides: Client-side
+  - Responsibility: Submits completed organization forms to be stored, filters and retrieves organization data to be displayed
+  - Resides: Client-side and server-side
   - Other components
-    - OrganizationController communicates with SubmitOrganizationFormView to submit information about name of organization, type of organization, address, phone number, email, device needs, donation goal, short description of organization, and organization mission statement
+    - Communicates with _OrganizationModel_ to store all submitted organizations and respective data, including: organization name, type, address, phone number, email, device needs, donation goal, description, and mission statement.
+    - Communicates with _OrganizationModel_ to retrieve data for appropriate organizations to be displayed to the user
+    - Communicates with _BrowseOrganizationsView_ to filter which organizations to display to user
+    - Communicates with _BrowseOrganizationsView_ to display appropriate organizations to the user
+    - Communicates with OrganizationCardView to display information about a specific organization to the user
+    - Communicates with IndividualOrganizationView to display information about a specific organization to the user
+
   - Stub:
   ```
   // Handles storing information inputted by user through the SubmitOrganizationForm
