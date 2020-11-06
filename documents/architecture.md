@@ -233,18 +233,20 @@
     - Communicates with _OrganizationModel_ to update an organization’s donation goal percentage (donations received / donation goal)
   - Stub:
   ```
-    // Handles storing information inputted by user through the DonationForm
-  Class DonationController extends Component() {
-    // Stores the inputted responses to the DonorDeviceModel
-    function fillDonationForm(response) {
-      DonorDeviceModel.add(fName)
-      DonorDeviceModel.add(lName)
-      DonorDeviceModel.add(donorPhone)
-      DonorDeviceModel.add(donorAddress)
-      DonorDeviceModel.add(deviceType) // from formDropDown
-      DonorDeviceModel.add(quantity)
+  // Store inputted responses in DonationModel
+  function saveDonation(response) {
+	DonorDeviceModel.add(fName)
+	DonorDeviceModel.add(lName)
+	DonorDeviceModel.add(donorPhone)
+	DonorDeviceModel.add(donorAddress)
+	DonorDeviceModel.add(deviceType) // from formDropDown
+	DonorDeviceModel.add(quantity)
+	}
     }
-  }
+    
+    function updateDonationCount(organization) {
+    	// update organization's donation count
+    }
 
   ```
 
@@ -261,40 +263,23 @@
 
   - Stub:
   ```
-  // Handles storing information inputted by user through the SubmitOrganizationForm
-  Class DonationController extends Component() {
+	// Store the inputted responses in OrganizationModel
+	function saveOrganizaiton(response) {
+		OrganizationModel.add(orgName)
+		OrganizationModel.add(orgType)
+		OrganizationModel.add(orgAddress)
+		OrganizationModel.add(orgPhone)
+		OrganizationModel.add(orgEmail)
+		OrganizationModel.add(orgNeeds) // from formDropDown
+		OrganizationModel.add(orgGoal)
+		OrganizationModel.add(orgDescription)
+	}
 
-    // Stores the inputted responses to the OrganizationModel
-    function fillOrganizaitonForm(response) {
-      OrganizationModel.add(orgName)
-      OrganizationModel.add(orgType)
-      OrganizationModel.add(orgAddress)
-      OrganizationModel.add(orgPhone)
-      OrganizationModel.add(orgEmail)
-      OrganizationModel.add(orgNeeds) // from formDropDown
-      OrganizationModel.add(orgGoal)
-      OrganizationModel.add(orgDescription)
-    }
+	// pull organizations from OrganizationModel to display
+	function displayOrgs() {
+	for organization in OrganizationModel {
+		organizations.add(OrganizationCard(organization));
+		}
+	}
 
-    Function fillDisplay() {
-      // TODO replace with actual algorithm
-      For organization in OrganizationModel {
-        Organizations.add(OrganizationCard(organization));
-      }
-    }
-  }
-  ```
-
-- _**DropDownController**_
-  - Responsibility: communicates with dropdown menus to change what information is displayed to the user or passed to their respective model
-  - Resides: Client-side
-  - Other components:
-    - DropDownController asks the FormDropDownView to write information about organization type or device type
-    - DropDownController asks the FilterDropDownView to display only organization cards that meet the parameters selected
-  - Stub:
-  ```
-  // Handles storing information inputted by user through the dropdown menus
-  Class DonationController extends Component() {
-    // TODO Implement actual component
-  }
   ```
