@@ -48,3 +48,6 @@ We have divided our project into the following phases:
 * Evaluate, triage, and reflect
 
 We categorized the components of our project and defined their respective phases. As shown above, each component has been assigned to an individual owner. Timeframes for each component are defined to the right, under "timeline". We plan to deliver the final project on **December 16th, 2020**. We plan to have a working model to present to the class and for the peer review ready by the deadline of Homework 7 - our target is to have it completed by **December 6th, 2020**. This gives us some extra flexibility in the proceeding weeks to implement the changes based on any bugs that are reported.
+
+# 5. Verification
+All of our requirements are listed [here](https://github.com/autumn-info-442a/team-a/blob/main/documents/requirements.md). We will be manually verifying them. Since we have many visual components, we believe it will be easier to check that everything is working by manually testing and checking. Our design is relatively simple, and we should be able to follow the code step-by-step for both the front-end and back-end. We plan to verify everything component-by-component, with frequent commits and pushes when it comes to functions and smaller modules. Once everything is built, we will do a re-verification to make sure the final integrated system works as planned.
