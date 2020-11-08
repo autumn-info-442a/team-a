@@ -17,19 +17,34 @@ Suyash Ahuja, our PM, will be coordinating the work. This responsibility is defi
 - Controllers: Ashlea (software dev) will be responsible for the controller components.
 
 ### Component Breakdown:
-- NavBarView: Joanna
-- LandingPageView: Joanna
-- SubmitOrganizationFormView: Ashlea
-- BrowseOrganizationsView: Ashlea
-- OrganizationCardView: Joanna
+- NavBarView: Joanna (designer)
+- LandingPageView: Joanna (designer)
+- SubmitOrganizationFormView: Ashlea (developer)
+- BrowseOrganizationsView: Ashlea (developer)
+- OrganizationCardView: Joanna (designer)
 - IndividualOrganizationView: Suyash
-- DonationFormView: Ashlea
-- FormDropDownView: Ashlea
-- FilterDropDownView: Ashlea
-- OrganizationModel: Ashlea
-- DonorDeviceModel: Ashlea
-- DonationController: Ashlea
-- OrganizationController: Ashlea
-- DropDownController: Ashlea
+- DonationFormView: Ashlea (developer)
+- FormDropDownView: Ashlea (developer)
+- FilterDropDownView: Ashlea (developer)
+- OrganizationModel: Ashlea (developer)
+- DonorDeviceModel: Ashlea (developer)
+- DonationController: Ashlea (developer)
+- OrganizationController: Ashlea (developer)
+- DropDownController: Ashlea (developer)
+
+We decided that Ashlea would own the majority of the views, as well as the models and controllers, because she will be the main person responsible for coding, as per her role as developer. We gave Joanna, our designer, ownership over some of the views, as she knows the design best and how the product should look to the user. Suyash, our PM, was given ownership over one view, to distrubute the work and allow for contribution from everyone.
 
 ## 4. Timeline
+![Timeline pt1](../imgs/timeline1.png)
+![Timeline pt2](../imgs/timeline2.png)
+![Timeline pt3](../imgs/timeline3.png)
+
+We have divided our project into the following phases:
+* General navigation
+* Setting up organization backend
+* Displaying organization cards + search feature
+* Donations
+* Fix bugs before release
+* Evaluate, triage, and reflect
+
+We categorized the components of our project and defined their respective phases. As shown above, each component has been assigned to an individual owner. Timeframes for each component are defined to the right, under "timeline". We plan to deliver the final project on **December 16th, 2020**. We plan to have a working model to present to the class and for the peer review ready by the deadline of Homework 7 - our target is to have it completed by **December 6th, 2020**. This gives us some extra flexibility in the proceeding weeks to implement the changes based on any bugs that are reported.
