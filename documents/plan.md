@@ -35,9 +35,7 @@ Suyash Ahuja, our PM, will be coordinating the work. This responsibility is defi
 We decided that Ashlea would own the majority of the views, as well as the models and controllers, because she will be the main person responsible for coding, as per her role as developer. We gave Joanna, our designer, ownership over some of the views, as she knows the design best and how the product should look to the user. Suyash, our PM, was given ownership over one view, to distrubute the work and allow for contribution from everyone.
 
 ## 4. Timeline
-![Timeline pt1](../imgs/timeline1.png)
-![Timeline pt2](../imgs/timeline2.png)
-![Timeline pt3](../imgs/timeline3.png)
+![Timeline](../imgs/revisedtimeline.png)
 
 We have divided our project into the following phases:
 * General navigation
