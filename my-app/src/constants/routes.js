@@ -1,6 +1,6 @@
 export const LANDING = '/';
-/*export const DONATE
-export const BROWSE
-export const SUBMIT_ORG
-export const INDIV_ORG
-export const CONFIRMATION*/
+export const SUBMIT_ORG = '/submitOrg'
+export const BROWSE_ORGS = '/browseOrgs'
+export const INDIV_ORG = '/indivOrg'
+export const DONATION = '/donationForm'
+export const DONATION_CONFIRM = '/donationConfirm'
