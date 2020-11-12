@@ -1,29 +1,34 @@
-// import logo from './logo.svg';
-import React from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import * as ROUTES from './constants/routes.js';
 
 import './App.css';
-import LandingPageView from './components/Landing/LandingPageView.js';
-import NavBarView from './components/NavMenu/NavBarView.js';
+import landing from './components/Landing/landing.js';
+import NavBar from './components/NavBar/navbar.js';
 
+class App extends Component {
+  render() {
+    return (
+      <Router>
+        <NavBar />
+        <Route path={ROUTES.LANDING} component={landing}/>
+      </Router>
+    )
+  }
+}
+
+/*
  function App() {
      return (
        <Router>
-         <NavBarView>
-           <Route exact path={ROUTES.LANDING} component = {LandingPageView}/>
-         </NavBarView>
-         <LandingPageView/>
+         <navbar />
+           <Route exact path={ROUTES.LANDING} component = {landing}/>
+        
+         <landing/>
        </Router>
      )
  }
-
-/*
-function App() {
-  return <div className="App">
-    <NavBarView/>
-    <LandingPageView/>
-  </div>;
-  */
+*/
+  
 
 export default App;
