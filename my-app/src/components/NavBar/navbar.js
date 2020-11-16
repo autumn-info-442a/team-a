@@ -11,9 +11,15 @@ class NavBar extends Component {
                 <nav className="row-navbar">
                     <div className="navbar-logo">ACCESSITECH</div>
                     <ul className="navbar-links">
-                        <li><a href="/">About</a></li>
-                        <li><a href="/">Browse organizations</a></li>
-                        <li><a href="/">Submit a goal</a></li>
+                        <li><a href="index.html">
+                            <Link to={ROUTES.LANDING} id="landing">About Us</Link>
+                        </a></li>
+                        <li><a href="">
+                            <Link to={ROUTES.BROWSE_ORGS} id="browseOrgs">Browse organizations</Link>
+                        </a></li>
+                        <li><a href="/">
+                            <Link to={ROUTES.SUBMIT_ORG} id="submitOrg">Submit a goal</Link>
+                        </a></li>
                     </ul>
                 </nav>
             </header>
