@@ -95,8 +95,89 @@ class submitOrg extends Component {
                         <div id = "submit org form">
                             <form>
                                 <h1>Submit an Organization</h1>
+                                <div>
+                                    <div className="form-row">
+                                        <label>
+                                            <div className ="label-text">What is your organization?</div>
+                                            <input type="text" id="name" placeholder="Organization" value={this.state.Name} onChange={this.handleNameChange} />
+                                        </label>
+                                    </div>
+
+                                    <div className="form-row">
+                                        <label>
+                                            <div className ="label-text">Where is your organization located?</div>
+                                            <input type="text" id="address" placeholder="Address" value={this.state.Address} onChange={this.handleAddressChange} />
+                                        </label>
+                                    </div>
+
+                                    <div className="form-row">
+                                        <label className="num">
+                                            <div className="label-text">Organization type:</div>
+                                            <select id="myList" value={this.state.Type} onChange={this.handleTypeChange}>
+                                            <option value="0">Select organization type</option>
+                                            <option value="1">Medical</option>
+                                            <option value="2">Educational</option>
+                                            <option value="3">Occupational</option>
+                                            <option value="4">Military</option>
+                                            </select>
+                                        </label>
+                                    </div>
+
+                                    <div className="form-row">
+                                        <label>
+                                            <div className ="label-text">What is the organization's phone number?</div>
+                                            <input type="text" id="phone" placeholder="888-888-8888" value={this.state.Phone} onChange={this.handlePhoneChange} />
+                                        </label>
+                                    </div>
+
+                                    <div className="form-row">
+                                        <label>
+                                            <div className ="label-text">Where is the organization's email?</div>
+                                            <input type="text" id="email" placeholder="example@org.com" value={this.state.Email} onChange={this.handleEmailChange} />
+                                        </label>
+                                    </div>
+
+                                    <div className="form-row">
+                                        <label>
+                                            <div className ="label-text">What device(s) is the organization in need of?</div>
+                                            <div onChange={this.handleNeedChange}>
+                                                <input type="checkbox" value="Phones" name="need" /> Phones
+                                                <input type="checkbox" value="Laptops" name="need" /> Laptops
+                                                <input type="checkbox" value="Tablets" name="need" /> Tablets
+                                            </div>
+                                        </label>
+                                    </div>
+
+                                    <div className="form-row">
+                                        <label>
+                                            <div className ="label-text">Organization donation goal?</div>
+                                            <input type="text" id="goal" placeholder="e.g. 100" value={this.state.Goal} onChange={this.handleGoalChange} />
+                                        </label>
+                                    </div>
+
+                                    <div className="form-row">
+                                        <label>
+                                            <div className ="label-text">Brief description of organization:</div>
+                                            <input type="text" id="description" placeholder="Description" value={this.state.Description} onChange={this.handleDescriptionChange} />
+                                        </label>
+                                    </div>
+
+                                    <div className="form-row">
+                                        <label>
+                                            <div className ="label-text">Organization mission statement:</div>
+                                            <input type="text" id="mission" placeholder="Mission statement" value={this.state.Mission} onChange={this.handleMissionChange} />
+                                        </label>
+                                    </div>
+                                    
+                                    <div id="submit-button">
+                                        <button id="submitButton" className="button" onClick={this.handleSubmit} aria-live="assertive" role="submitButton">Submit</button>
+                                    </div>
+
+
+                                </div>
                             </form>
                         </div>
+
                     </div>
                 </main>
             </div>
