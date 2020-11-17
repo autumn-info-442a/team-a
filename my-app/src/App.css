@@ -102,19 +102,18 @@ nav .navbar-links {
   width: 120%;
 }
 
-.browse-organizations-button {
+#browse-organizations {
   background-color: grey;
   color: white;
-  text-decoration: none;
+  border-style: hidden;
   padding: 10px;
   border-radius: 5px;
   margin-right: 10px;
 }
 
-.submit-a-goal-button {
+#submit-a-goal {
   border: 1px solid grey;
   color: grey;
-  text-decoration: none;
   padding: 10px;
   border-radius: 5px;
 }
