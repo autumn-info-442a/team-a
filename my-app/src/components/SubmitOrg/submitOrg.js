@@ -168,7 +168,10 @@ class submitOrg extends Component {
                                             <input type="text" id="mission" placeholder="Mission statement" value={this.state.Mission} onChange={this.handleMissionChange} />
                                         </label>
                                     </div>
-
+                                    
+                                    <div id="submit-button">
+                                        <button id="submitButton" className="button" onClick={this.handleSubmit} aria-live="assertive" role="submitButton">Submit</button>
+                                    </div>
 
 
                                 </div>
