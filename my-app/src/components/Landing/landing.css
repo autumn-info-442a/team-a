@@ -1,0 +1,37 @@
+.landing-left {
+    transform: translateY(50%);
+  }
+  
+  .landing-text h1 {
+    font-size: 30px;
+  }
+  
+  .landing-text p {
+    margin-bottom: 75px;
+    font-size: 16px;
+  }
+  
+  .landing-right {
+    transform: translateY(20%);
+  }
+  
+  .landing-img {
+    height: 120%;
+    width: 120%;
+  }
+  
+  #browse-organizations {
+    background-color: grey;
+    color: white;
+    border-style: hidden;
+    padding: 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  #submit-a-goal {
+    border: 1px solid grey;
+    color: grey;
+    padding: 10px;
+    border-radius: 5px;
+  }
