@@ -96,7 +96,7 @@ class submitOrg extends Component {
                                         <div className="form-row">
                                             <label>
                                                 <div className ="label-text">What is your organization?</div>
-                                                <input type="text" id="name" placeholder="Organization" value={this.state.Name} onChange={this.handleNameChange} />
+                                                <input type="text" id="name" placeholder="Organization name" value={this.state.Name} onChange={this.handleNameChange} />
                                             </label>
                                         </div>
 
@@ -124,14 +124,14 @@ class submitOrg extends Component {
                                     
                                     <div className="form-row">
                                         <label>
-                                            <div className ="label-text">What is the organization's phone number?</div>
+                                            <div className ="label-text">What is your organization's phone number?</div>
                                             <input type="text" id="phone" placeholder="888-888-8888" value={this.state.Phone} onChange={this.handlePhoneChange} />
                                         </label>
                                     </div>
 
                                     <div className="form-row">
                                         <label>
-                                            <div className ="label-text">Where is the organization's email?</div>
+                                            <div className ="label-text">Where is your organization's email?</div>
                                             <input type="text" id="email" placeholder="example@org.com" value={this.state.Email} onChange={this.handleEmailChange} />
                                         </label>
                                     </div>
@@ -149,7 +149,7 @@ class submitOrg extends Component {
 
                                     <div className="form-row">
                                         <label>
-                                            <div className ="label-text">Please give a short description of organization (50 words max)</div>
+                                            <div className ="label-text">Please give a short description of your organization (50 words max)</div>
                                             <textarea rows="3" cols="80" id="description" placeholder="Description" value={this.state.Description} onChange={this.handleDescriptionChange} />
                                         </label>
                                     </div>
