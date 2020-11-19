@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+const useState = React.useState
+const useEffect = React.useEffect
 
 class submitOrg extends Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             Name: '',
             Type: '',
@@ -13,42 +15,42 @@ class submitOrg extends Component {
             Description: '',
             Mission: '',
             info: []
-        };
+        }
 
-        this.handleNameChange = this.handleNameChange.bind(this);
-        this.handleTypeChange = this.handleTypeChange.bind(this);
-        this.handleAddressChange = this.handleAddressChange.bind(this);
-        this.handlePhoneChange = this.handlePhoneChange.bind(this);
-        this.handleEmailChange = this.handleEmailChange.bind(this);
-        this.handleNeedChange = this.handleNeedChange.bind(this);
-        this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
-        this.handleMissionChange = this.handleMissionChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleNameChange = this.handleNameChange.bind(this)
+        this.handleTypeChange = this.handleTypeChange.bind(this)
+        this.handleAddressChange = this.handleAddressChange.bind(this)
+        this.handlePhoneChange = this.handlePhoneChange.bind(this)
+        this.handleEmailChange = this.handleEmailChange.bind(this)
+        this.handleNeedChange = this.handleNeedChange.bind(this)
+        this.handleDescriptionChange = this.handleDescriptionChange.bind(this)
+        this.handleMissionChange = this.handleMissionChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handleNameChange(event) {
-        this.setState({Name: event.target.value});
+        this.setState({Name: event.target.value})
     }
     handleTypeChange(event) {
-        this.setState({Type: event.target.value});
+        this.setState({Type: event.target.value})
     }
     handleAddressChange(event) {
-        this.setState({Address: event.target.value});
+        this.setState({Address: event.target.value})
     }
     handlePhoneChange(event) {
-        this.setState({Phone: event.target.value});
+        this.setState({Phone: event.target.value})
     }
     handleEmailChange(event) {
-        this.setState({Email: event.target.value});
+        this.setState({Email: event.target.value})
     }
     handleNeedChange(event) {
-        this.setState({Need: event.target.value});
+        this.setState({Need: event.target.value})
     }
     handleDescriptionChange(event) {
-        this.setState({Description: event.target.value});
+        this.setState({Description: event.target.value})
     }
     handleMissionChange(event) {
-        this.setState({Mission: event.target.value});
+        this.setState({Mission: event.target.value})
     }
 
     handleSubmit(event) {
@@ -62,22 +64,26 @@ class submitOrg extends Component {
             Mission: this.state.Mission
         }
         
-        this.state.info.push(obj);
-        event.preventDefault();
+        this.state.info.push(obj)
+        event.preventDefault()
 
-        this.clearState(event);
-        this.setState({});
+        this.clearState(event)
+        this.setState({})
     }
 
     clearState(event) {
-        this.state.Name = '';
-        this.state.Type = '';
-        this.state.Address = '';
-        this.state.Phone = '';
-        this.state.Email = '';
-        this.state.Need = '';
-        this.state.Description = '';
-        this.state.Mission = '';
+        /*
+        this.state.Name = ''
+        this.state.Type = ''
+        this.state.Address = ''
+        this.state.Phone = ''
+        this.state.Email = ''
+        this.state.Need = ''
+        this.state.Description = ''
+        this.state.Mission = ''
+        */
+
+        this.setState = ''
     }
 
     render() {
@@ -171,4 +177,4 @@ class submitOrg extends Component {
     }
 }
 
-export default submitOrg;
+export default submitOrg
