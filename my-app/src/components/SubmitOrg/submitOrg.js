@@ -10,7 +10,6 @@ class submitOrg extends Component {
             Phone: '',
             Email: '',
             Need: '',
-            Goal: '',
             Description: '',
             Mission: '',
             info: []
@@ -22,7 +21,6 @@ class submitOrg extends Component {
         this.handlePhoneChange = this.handlePhoneChange.bind(this);
         this.handleEmailChange = this.handleEmailChange.bind(this);
         this.handleNeedChange = this.handleNeedChange.bind(this);
-        this.handleGoalChange = this.handleGoalChange.bind(this);
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
         this.handleMissionChange = this.handleMissionChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -46,9 +44,6 @@ class submitOrg extends Component {
     handleNeedChange(event) {
         this.setState({Need: event.target.value});
     }
-    handleGoalChange(event) {
-        this.setState({Goal: event.target.value});
-    }
     handleDescriptionChange(event) {
         this.setState({Description: event.target.value});
     }
@@ -63,7 +58,6 @@ class submitOrg extends Component {
             Phone: this.state.Phone,
             Email: this.state.Email,
             Need: this.state.Need,
-            Goal: this.state.Goal,
             Description: this.state.Description,
             Mission: this.state.Mission
         }
@@ -82,7 +76,6 @@ class submitOrg extends Component {
         this.state.Phone = '';
         this.state.Email = '';
         this.state.Need = '';
-        this.state.Goal = '';
         this.state.Description = '';
         this.state.Mission = '';
     }
@@ -145,13 +138,6 @@ class submitOrg extends Component {
                                                 <input type="checkbox" value="Laptops" name="need" /> Laptops
                                                 <input type="checkbox" value="Tablets" name="need" /> Tablets
                                             </div>
-                                        </label>
-                                    </div>
-
-                                    <div className="form-row">
-                                        <label>
-                                            <div className ="label-text">Organization donation goal?</div>
-                                            <input type="text" id="goal" placeholder="e.g. 100" value={this.state.Goal} onChange={this.handleGoalChange} />
                                         </label>
                                     </div>
 
