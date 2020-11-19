@@ -4,10 +4,11 @@
   
 .landing-text h1 {
   font-size: 1.5vw;
+  font-weight: 600;
 }
   
 .landing-text p {
-  margin-bottom: 75px;
+  margin-bottom: 5vh;
   font-size: 0.80vw;
 }
   
@@ -21,7 +22,7 @@
 }
   
 #browse-organizations {
-  background-color: grey;
+  background-color: #555555;
   color: white;
   border-style: hidden;
   padding: 10px;
@@ -31,8 +32,8 @@
 }
   
 #submit-a-goal {
-  border: 1px solid grey;
-  color: grey;
+  border: 1px solid #555555;
+  color: black;
   padding: 10px;
   border-radius: 5px;
   font-size: 0.80vw;
