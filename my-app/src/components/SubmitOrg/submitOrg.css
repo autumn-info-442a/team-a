@@ -4,7 +4,13 @@
   padding: 1% 16% 1%;
 }
 
+/*
 .form-content {
+  padding-left: 16.2%;
+}
+*/
+
+.form {
   padding-left: 16.2%;
 }
 
@@ -33,11 +39,11 @@ input, textarea {
   border-style: hidden;
 }
 
-.organization-type {
+.org-name-type {
   display: flex;
 }
 
-.organization-type .form-row {
+.org-name-type .form-row {
   padding-right: 1.25vw;
 }
 
