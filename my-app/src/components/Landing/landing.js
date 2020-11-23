@@ -6,6 +6,11 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+import { Link } from 'react-router-dom';
+import * as ROUTES from '../../constants/routes';
+
+import './landing.css'
+
 class LandingPageView extends Component {
     render() {
         return (
@@ -17,12 +22,16 @@ class LandingPageView extends Component {
                                 <h1>We help you close the digital divide for accessible technology</h1>
                                 <p>Let us help you find an organization to donate your devices to or 
                                     let us help your organization meet your device donation goals</p>
-                                <a className="browse-organizations-button" href="/">
-                                    Browse organizations
-                                </a>
-                                <a className="submit-a-goal-button" href="/">
-                                    Submit a goal
-                                </a>
+                                <Link to={ROUTES.BROWSE_ORGS}>
+                                    <button type ="browse-organizations-button" id="browse-organizations">
+                                        Browse organizations
+                                    </button>
+                                </Link>
+                                <Link to={ROUTES.SUBMIT_ORG}>
+                                    <button type ="submit-a-goal-button" id="submit-a-goal">
+                                        Submit a goal
+                                    </button>
+                                </Link>
                             </div>
                         </Col>
 

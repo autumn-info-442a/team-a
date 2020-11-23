@@ -1,0 +1,66 @@
+.form-flex h1 {
+  font-size: 1.3vw;
+  font-weight: 600;
+  padding: 1% 16% 1%;
+}
+
+.form-content {
+  padding-left: 16.2%;
+}
+
+.form-row {
+  font-size: 0.80vw;
+  padding-bottom: 0.50%;
+}
+
+.label-text {
+  font-size: 0.80vw;
+  font-weight: 600;
+  padding-bottom: 0.2vw;
+}
+
+input, textarea {
+  padding: 0% 1% 0%;
+}
+
+.form-flex button {
+  background-color: #555555;
+  color: white;
+  border-radius: 5px;
+  font-size: 0.80vw;
+  padding: 0.5%;
+  margin-left: -0.3%;
+  border-style: hidden;
+}
+
+.organization-type {
+  display: flex;
+}
+
+.organization-type .form-row {
+  padding-right: 1.25vw;
+}
+
+#name {
+  width: 15vw;
+}
+
+#address {
+  width: 20vw;
+}
+
+#phone {
+  width: 7vw;
+}
+
+.device-types {
+  display: grid;
+}
+
+::placeholder, span#type, select#myList, textarea#description {
+  font-weight: 100;
+}
+
+select#myList {
+  padding-right: 0.2vw;
+}
