@@ -1,6 +1,5 @@
-import React, { Component } from 'react'
-const useState = React.useState
-const useEffect = React.useEffect
+import React, { Component, useState } from 'react'
+import { db } from '../firebase'
 
 class submitOrg extends Component {
     constructor(props) {
