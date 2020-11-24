@@ -138,8 +138,6 @@ const handleSubmit = (e) => {
                             <span id="type"><input onClick={handleClickPhone} checked={needPhone} type="checkbox" /> Phones</span>
                             <span id="type"><input onClick={handleClickLaptop} checked={needLaptop} type="checkbox" /> Laptops</span>
                             <span id="type"><input onClick={handleClickTablet} checked={needTablet} type="checkbox" /> Tablets</span>
-
-                            
                         </div>
                     </label>
                 </div>
