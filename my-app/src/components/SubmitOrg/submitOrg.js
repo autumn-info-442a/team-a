@@ -1,6 +1,7 @@
 import React, { Component, useState } from 'react'
-import { db } from '../firebase'
 import './submitOrg.css'
+import { db } from '../firebase'
+
 
 
 const Organization = () => {
@@ -9,8 +10,17 @@ const Organization = () => {
     const [address, setAddress] = useState("")
     const [phone, setPhone] = useState("")
     const [email, setEmail] = useState("")
-    const [need, setNeed] = useState("")
-    const [goal, setGoal] = useState("")
+   
+    const [needPhone, setNeedPhone] = useState(false)
+    const handleClickPhone = () => setNeedPhone(!needPhone)
+
+    const [needLaptop, setNeedLaptop] = useState(false)
+    const handleClickLaptop = () => setNeedLaptop(!needLaptop)
+
+    const [needTablet, setNeedTablet] = useState(false)
+    const handleClickTablet = () => setNeedTablet(!needTablet)
+
+    const [goal, setGoal] = useState(0)
     const [description, setDescription] = useState("")
 
 const handleSubmit = (e) => {
@@ -22,8 +32,11 @@ const handleSubmit = (e) => {
         address: address,
         phone: phone,
         email: email,
-        need: need,
-        goal: goal,
+        needPhone: needPhone,
+        needLaptop: needLaptop,
+        needTablet: needTablet,
+        goal: parseInt(goal),
+        received: 0,
         description: description,
     })
     .then(() => {
@@ -38,8 +51,10 @@ const handleSubmit = (e) => {
     setAddress('')
     setPhone('')
     setEmail('')
-    setNeed('')
-    setGoal('')
+    setNeedPhone(false)
+    setNeedLaptop(false)
+    setNeedTablet(false)
+    setGoal(0)
     setDescription('')
 }
 
@@ -119,10 +134,10 @@ const handleSubmit = (e) => {
                 <div className = "form-row">
                     <label>
                         <div className ="label-text">What device(s) is the organization in need of?</div>
-                        <div className ="device-types" onChange={(e) => setNeed(e.target.value)}>
-                            <span id="type"><input type="checkbox" value="Phones" name="need" /> Phones</span>
-                            <span id="type"><input type="checkbox" value="Laptops" name="need" /> Laptops</span>
-                            <span id="type"><input type="checkbox" value="Tablets" name="need" /> Tablets</span>
+                        <div className ="device-types">
+                            <span id="type"><input onClick={handleClickPhone} checked={needPhone} type="checkbox" /> Phones</span>
+                            <span id="type"><input onClick={handleClickLaptop} checked={needLaptop} type="checkbox" /> Laptops</span>
+                            <span id="type"><input onClick={handleClickTablet} checked={needTablet} type="checkbox" /> Tablets</span>
                         </div>
                     </label>
                 </div>
@@ -131,7 +146,7 @@ const handleSubmit = (e) => {
                     <label>
                         <div className ="label-text">Donation goal:</div>
                         <input 
-                            type = "text"
+                            type = "number"
                             id = "goal"
                             placeholder="100"
                             value={goal}
