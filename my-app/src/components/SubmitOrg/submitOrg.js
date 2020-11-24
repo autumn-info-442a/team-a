@@ -157,8 +157,8 @@ const handleSubmit = (e) => {
 
                 <div className = "form-row">
                     <label>
-                        <div className ="label-text">Please provide a short description of the organization</div>
-                        <textarea rows="3" cols="80"
+                        <div className ="label-text">Please provide a short description of the organization (100 words):</div>
+                        <textarea rows="6" cols="80"
                             id = "description"
                             placeholder="Description"
                             value={description}
