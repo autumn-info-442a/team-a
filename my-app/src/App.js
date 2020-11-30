@@ -8,6 +8,7 @@ import NavBar from './components/NavBar/navbar';
 import submitOrg from './components/SubmitOrg/submitOrg'
 import browseOrgs from './components/BrowseOrgs/browseOrgs'
 import donation from './components/DonationForm/donationForm'
+import donationConfirm from './components/DonationConfirm/donationConfirm'
 
 class App extends Component {
   render() {
@@ -18,23 +19,9 @@ class App extends Component {
         <Route exact path={ROUTES.SUBMIT_ORG} component={submitOrg}/>
         <Route exact path={ROUTES.BROWSE_ORGS} component={browseOrgs}/>
         <Route exact path={ROUTES.DONATION} component={donation}/>
+        <Route exact path={ROUTES.DONATION_CONFIRM} component={donationConfirm}/>
       </Router>
     )
   }
 }
-
-/*
- function App() {
-     return (
-       <Router>
-         <navbar />
-           <Route exact path={ROUTES.LANDING} component = {landing}/>
-        
-         <landing/>
-       </Router>
-     )
- }
-*/
-  
-
 export default App
