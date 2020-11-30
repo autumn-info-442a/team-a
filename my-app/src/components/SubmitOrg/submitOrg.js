@@ -2,8 +2,6 @@ import React, { Component, useState } from 'react'
 import './submitOrg.css'
 import { db } from '../firebase'
 
-
-
 const Organization = () => {
     const [name, setName] = useState("")
     const [type, setType] = useState("")
@@ -23,7 +21,7 @@ const Organization = () => {
     const [goal, setGoal] = useState(0)
     const [description, setDescription] = useState("")
 
-const handleSubmit = (e) => {
+    const handleSubmit = (e) => {
     e.preventDefault()
 
     db.collection('organizations').add({
