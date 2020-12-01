@@ -9,7 +9,9 @@ class NavBar extends Component {
         return (
             <header>
                 <nav className="row-navbar">
-                    <div className="navbar-logo">ACCESSITECH</div>
+                    <div className="navbar-logo">
+                        <Link to={ROUTES.LANDING} id="logo">ACCESSITECH</Link>
+                    </div>
                     <ul className="navbar-links">
                         <li><a href="index.html">
                             <Link to={ROUTES.LANDING} id="landing">About Us</Link>
