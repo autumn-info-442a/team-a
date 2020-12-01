@@ -20,14 +20,15 @@ nav li {
   
 nav a {
   text-decoration: none;
-  font-size: 0.80vw;
+  font-size: 0.9vw;
   color: black;
 }
   
-nav .navbar-logo {
+nav #logo {
   font-size: 1.70vw;
   font-weight: 400;
   font-family: 'Fredoka One', cursive;
+  text-decoration: none;
 }
   
 nav .navbar-links {

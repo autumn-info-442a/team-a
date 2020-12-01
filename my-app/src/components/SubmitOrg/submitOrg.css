@@ -1,26 +1,21 @@
 .form-flex h1 {
   font-size: 1.3vw;
   font-weight: 600;
-  padding: 1% 16% 1%;
+  margin-left: -0.3%;
+  padding: 1% 0%;
 }
-
-/*
-.form-content {
-  padding-left: 16.2%;
-}
-*/
 
 .form {
   padding-left: 16.2%;
 }
 
 .form-row {
-  font-size: 0.80vw;
+  font-size: 0.9vw;
   padding-bottom: 0.50%;
 }
 
 .label-text {
-  font-size: 0.80vw;
+  font-size: 0.9vw;
   font-weight: 600;
   padding-bottom: 0.2vw;
 }
@@ -33,7 +28,7 @@ input, textarea {
   background-color: #555555;
   color: white;
   border-radius: 5px;
-  font-size: 0.80vw;
+  font-size: 0.9vw;
   padding: 0.5%;
   margin-left: -0.3%;
   border-style: hidden;
@@ -63,7 +58,11 @@ input, textarea {
   display: grid;
 }
 
-::placeholder, span#type, select#myList, textarea#description {
+.device-types input[type="checkbox"] {
+  margin-right: 0.3vw;
+}
+
+::placeholder, span#type, select#myList, textarea#description, input#goal {
   font-weight: 100;
 }
 

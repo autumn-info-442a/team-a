@@ -1,0 +1,24 @@
+.names {
+  margin-left: -0.3%;
+}
+
+.names label, .device-type-model label {
+  padding-right: 1.25vw;
+  padding-bottom: 0.50%;
+}
+
+input#fname, input#lname {
+  font-size:0.9vw;
+}
+
+.device-type-model {
+  display: flex;
+}
+
+.requirement-types {
+  display: grid;
+}
+
+.requirement-types input[type="checkbox"] {
+  margin-right: 0.5vw;
+}

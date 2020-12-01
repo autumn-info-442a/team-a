@@ -1,5 +1,6 @@
 import React, { Component, useState } from 'react'
 import { db } from '../firebase'
+import './donationForm.css'
 
 const Donation = () => {
     const [fname, setFname] = useState("")
@@ -106,36 +107,38 @@ const Donation = () => {
                     </label>
                 </div>
 
-                <div className = "form-row">
-                    <label>
-                        <div className ="label-text">Device type:</div>
-                        <select id="myList" value={device} onChange={(e) => setDevice(e.target.value)}>
-                            <option value="0">Select organization type</option>
-                            <option value="1">Phone</option>
-                            <option value="2">Laptop</option>
-                            <option value="3">Tablet</option>
-                            <option value="4">Other</option>
-                        </select>
-                    </label>
-                </div>
+                <div className = "device-type-model">
+                    <div className = "form-row">
+                        <label>
+                            <div className ="label-text">Device type:</div>
+                            <select id="myList" value={device} onChange={(e) => setDevice(e.target.value)}>
+                                <option value="0">Select device type</option>
+                                <option value="1">Phone</option>
+                                <option value="2">Laptop</option>
+                                <option value="3">Tablet</option>
+                            </select>
+                        </label>
+                    </div>
 
-                <div className = "form-row">
-                    <label>
-                        <div className ="label-text">Device model:</div>
-                        <input 
-                            type = "text"
-                            id = "model"
-                            placeholder="Device model"
-                            value={model}
-                            onChange={(e) => setModel(e.target.value)}
-                        />
-                    </label>
+                    <div className = "form-row">
+                        <label>
+                            <div className ="label-text">Device model:</div>
+                            <input 
+                                type = "text"
+                                id = "model"
+                                placeholder="Device model"
+                                value={model}
+                                onChange={(e) => setModel(e.target.value)}
+                            />
+                        </label>
+                    </div>
+
                 </div>
 
                 <div className = "form-row">
                     <label>
                         <div className ="label-text">Please confirm your device meets these requirements before donating:</div>
-                        <div className ="device-types">
+                        <div className ="requirement-types">
                             <span id="type"><input onClick={handleClickIsReset} checked={isReset} type="checkbox" />Device is factory reset</span>
                             <span id="type"><input onClick={handleClickIsWorking} checked={isWorking} type="checkbox" />Device is in working condition</span>
                             <span id="type"><input onClick={handleClickIsSanitized} checked={isSanitized} type="checkbox" />Device is properly sanitized</span>
