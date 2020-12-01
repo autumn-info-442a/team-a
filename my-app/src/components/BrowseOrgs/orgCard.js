@@ -1,5 +1,7 @@
 import React, { Component } from "react"
 // import { Card } from "react-bootstrap"
+import './browseOrgs.css'
+
 import {
     Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button
@@ -20,7 +22,7 @@ class OrgCard extends Component {
                 <CardTitle tag="h5">{name}</CardTitle>
                 <CardSubtitle tag="h6" className="mb-2 text-muted">{type}</CardSubtitle>
                 <CardText>{description}</CardText>
-                <Button>Button</Button>
+                <Button>Donate</Button>
               </CardBody>
             </Card>
           </div>
