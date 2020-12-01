@@ -80,11 +80,11 @@ const Organization = () => {
                         <label>
                             <div className ="label-text">Organization type:</div>
                             <select id="myList" value={type} onChange={(e) => setType(e.target.value)}>
-                                <option value="0">Select organization type</option>
-                                <option value="1">Medical</option>
-                                <option value="2">Educational</option>
-                                <option value="3">Occupational</option>
-                                <option value="4">Military</option>
+                                <option value="">Select organization type</option>
+                                <option value="Medical">Medical</option>
+                                <option value="Educational">Educational</option>
+                                <option value="Occupational">Occupational</option>
+                                <option value="Military">Military</option>
                             </select>
                         </label>
                     </div>
