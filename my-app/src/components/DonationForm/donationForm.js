@@ -1,4 +1,5 @@
 import React, { Component, useState } from 'react'
+import { db } from '../firebase'
 import './donationForm.css'
 
 const Donation = () => {
@@ -18,9 +19,42 @@ const Donation = () => {
     const [isSanitized, setIsSanitized] = useState(false)
     const handleClickIsSanitized = () => setIsSanitized(!isSanitized)
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        // db.collection('organizations'). -> received++
+        db.collection('donations').add({
+            fname: fname,
+            lname: lname,
+            phone: phone,
+            address: address,
+            device: device,
+            model: model,
+            isReset: isReset,
+            isWorking: isWorking,
+            isSanitized: isSanitized,
+        })
+        .then(() => {
+            alert('Donation confirmed')
+        })
+        .catch((error) => {
+            alert(error.message)
+        })
+
+        setFname('')
+        setLname('')
+        setPhone('')
+        setAddress('')
+        setDevice('')
+        setModel('')
+        setIsReset(false)
+        setIsWorking(false)
+        setIsSanitized(false)
+    }
+
     return (
         <div className = "form-flex">
-            <form className = "form">
+            <form className = "form" onSubmit={handleSubmit}>
                 <h1>Donate Device</h1>
 
                 <div className = "names">
