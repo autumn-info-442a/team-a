@@ -1,8 +1,9 @@
 import React, { Component }  from 'react'
 import { db } from '../firebase'
-import { Container, Row, Col } from 'reactstrap'
-import OrgCard from './orgCard'
+import { Card } from "react-bootstrap"
 import './browseOrgs.css'
+// import { Container, Row, Col } from 'reactstrap'
+// import OrgCard from './orgCard'
 
 class BrowseOrgs extends Component {
     constructor() {
@@ -13,52 +14,41 @@ class BrowseOrgs extends Component {
         }
     }
 
-    componentDidMount(){
+    // fetch the data from firebase
+    componentDidMount() {
         db.collection('organizations')
             .get()
-            .then( snapshot => {
+            .then(snapshot => {
                 const orgs = []
                 snapshot.forEach( doc => {
                     const data = doc.data()
                     orgs.push(data)
                 })
                 this.setState({ orgs: orgs })
-                
-                /*
-                 var keys = Object.keys(orgs)
-                 console.log(keys)
-
-                 keys.forEach( key => {
-                    var org = orgs[key]
-                    console.log(org.name)
-                }) */
+                console.log(orgs)
             })
     }
 
-    removeOrg(id) {
-        this.setState({ orgs: this.state.orgs.filter(org => org.id !== id)});
-      }
-
     render() {
-        let orgCards = this.state.orgs.map(org => {
-            return (
-                <Col sm='4'>
-                    <OrgCard org={org} />
-                </Col>
-            )
-        })
-        return(
-            <div className="find-org">
-                <h1>Find an organization to donate to</h1>
+        const orgs = this.state.orgs
 
-                <Container fluid>
-                    <Row>
-                        {orgCards}
-                    </Row>
-                </Container>
-            </div>
+        const renderCard = (card, index) => {
+            return (
+                <Card style={{ width: "18rem" }} key={index} className="box">
+                    <Card.Body>
+                    <Card.Title>{card.name}</Card.Title>
+                    <Card.Text>{card.description}</Card.Text>
+                    </Card.Body>
+                </Card>
+            )
+        }
+
+        return (
+        <div className="grid">{orgs.map(renderCard)}</div>
         )
     }
+
+
 }
 
 export default BrowseOrgs
