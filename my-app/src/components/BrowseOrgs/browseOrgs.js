@@ -34,15 +34,14 @@ class BrowseOrgs extends Component {
 
         const renderCard = (card, index) => {
             return (
-
-                <Card style={{ width: "18rem" }} key={index} className="box">
+                <Card key={index} className="box">
                     <Card.Body>
                     <Card.Title>{card.name}</Card.Title>
                     <Card.Subtitle>{card.type}</Card.Subtitle>
-                    <Card.Text className="details">Phone number: {card.phone}</Card.Text>
-                    <Card.Text className="details">Email: {card.email}</Card.Text>
-                    <Card.Text className="details">Address: {card.address}</Card.Text>
-                    <Card.Text>Devices needed: {card.needs} </Card.Text>
+                    <Card.Text className="details"><strong>Phone number: </strong>{card.phone}</Card.Text>
+                    <Card.Text className="details"><strong>Email: </strong>{card.email}</Card.Text>
+                    <Card.Text className="address"><strong>Address: </strong>{card.address}</Card.Text>
+                    <Card.Text className="devices"><strong>Devices needed: </strong>{card.needs} </Card.Text>
                     <Card.Text className="description">{card.description}</Card.Text>
                     <Button variant="primary">Donate</Button>
                     </Card.Body>
