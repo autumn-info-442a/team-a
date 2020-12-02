@@ -8,7 +8,7 @@ const Organization = () => {
     const [address, setAddress] = useState("")
     const [phone, setPhone] = useState("")
     const [email, setEmail] = useState("")
-   
+
     const [needPhone, setNeedPhone] = useState(false)
     const handleClickPhone = () => setNeedPhone(!needPhone)
 
@@ -17,6 +17,16 @@ const Organization = () => {
 
     const [needTablet, setNeedTablet] = useState(false)
     const handleClickTablet = () => setNeedTablet(!needTablet)
+
+    var deviceNeeds = ""
+    if(needPhone && needLaptop && needTablet) {deviceNeeds = "phones, laptops, tablets"}
+    else if(needPhone && needLaptop) {deviceNeeds = "phones, laptops"}
+    else if(needPhone && needTablet) {deviceNeeds = "phones, tablets"}
+    else if(needLaptop && needTablet) {deviceNeeds = "laptops, tablets"}
+    else if (needPhone) {deviceNeeds = "phones"}
+    else if(needLaptop) {deviceNeeds = "laptops"}
+    else if(needTablet) {deviceNeeds = "tablets"}
+    
 
     const [goal, setGoal] = useState(0)
     const [description, setDescription] = useState("")
@@ -30,9 +40,10 @@ const Organization = () => {
         address: address,
         phone: phone,
         email: email,
-        needPhone: needPhone,
-        needLaptop: needLaptop,
-        needTablet: needTablet,
+        needs: deviceNeeds,
+        //needPhone: needsPhone,
+        //needLaptop: needLaptop,
+        //needTablet: needTablet,
         goal: parseInt(goal),
         received: 0,
         description: description,
