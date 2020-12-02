@@ -2,6 +2,7 @@ import React, { Component }  from 'react'
 import { db } from '../firebase'
 import { Container, Row, Col } from 'reactstrap'
 import OrgCard from './orgCard'
+import './browseOrgs.css'
 
 class BrowseOrgs extends Component {
     constructor() {
@@ -47,11 +48,15 @@ class BrowseOrgs extends Component {
             )
         })
         return(
-            <Container fluid>
-                <Row>
-                    {orgCards}
-                </Row>
-            </Container>
+            <div className="find-org">
+                <h1>Find an organization to donate to</h1>
+
+                <Container fluid>
+                    <Row>
+                        {orgCards}
+                    </Row>
+                </Container>
+            </div>
         )
     }
 }

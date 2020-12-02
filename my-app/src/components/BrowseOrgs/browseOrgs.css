@@ -1,0 +1,23 @@
+.container-fluid {
+  width: 69.6vw;
+}
+
+h5.card-title {
+  font-size: 0.9vw;
+  font-weight: 600;
+}
+
+.find-org h1 {
+    font-size: 1.3vw;
+    font-weight: 600;
+    margin-left: 16%;
+    padding: 0.838% 0%;    
+}
+
+.col-sm-4 {
+    padding: 0.75vw;
+}
+
+.btn-secondary {
+    background-color: #555555;
+}

@@ -18,21 +18,28 @@ nav li {
   list-style-type: none;
 }
   
-nav a {
+.navbar-links a {
   text-decoration: none;
   font-size: 0.9vw;
   color: black;
 }
   
+.navbar-links a:hover {
+  text-decoration: none;
+  border-bottom: 3px solid #6466AE;
+}
+
 nav #logo {
   font-size: 1.70vw;
   font-weight: 400;
   font-family: 'Fredoka One', cursive;
   text-decoration: none;
+  color: black;
 }
   
 nav .navbar-links {
   display: flex;
   justify-content: space-around;
   width: 25%;
+  margin-right: -1.3vw;
 }
