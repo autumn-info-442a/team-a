@@ -1,0 +1,30 @@
+h1.thank-donator, h4.ship-label, p.org-details, p.instructions {
+  margin-left: 15.9%;
+}
+
+h1.thank-donator {
+  font-size: 1.3vw;
+  font-weight: 600;
+  padding: 1% 0%;
+}
+
+h4.ship-label, p.org-details, p.instructions {
+  font-size: 0.9vw;
+}
+
+p.org-details {
+  margin-left: 17%;
+}
+
+p.instructions {
+  padding-top: 0.8%;
+}
+
+a {
+    text-decoration: underline;
+    color: #0000EE;
+}
+
+a:visited {
+    color: #551A8B;
+}
