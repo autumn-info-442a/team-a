@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { db } from '../firebase'
+import * as ROUTES from '../../constants/routes';
+import { Redirect } from 'react-router-dom'
 import './donationForm.css'
 
  const DonationForm = (props) => {
@@ -7,8 +9,10 @@ import './donationForm.css'
 
     if(props.location.state.org) {
         org = props.location.state.org
-        console.log(org)
+        //console.log(org)
     }
+
+    const [redirect, setRedirect] = useState(false)
 
     const [fname, setFname] = useState("")
     const [lname, setLname] = useState("")
@@ -26,43 +30,67 @@ import './donationForm.css'
     const [isSanitized, setIsSanitized] = useState(false)
     const handleClickIsSanitized = () => setIsSanitized(!isSanitized)
 
+    // form validation
+    var noBlanks = (fname != "" && lname != "" && phone != "" && address != "" 
+                        && device != "" && model != "")
+    var properCondition = (isReset && isWorking && isSanitized)
+    var valid = noBlanks && properCondition
+    
+    // this object captures all information about the donation
+    var donationInfo = {
+        fname: fname,
+        lname: lname,
+        phone: phone,
+        address: address,
+        device: device,
+        model: model,
+        isReset: isReset,
+        isWorking: isWorking,
+        isSanitized: isSanitized,
+        organization: org.name
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        // db.collection('organizations'). -> received++
-        db.collection('donations').add({
-            fname: fname,
-            lname: lname,
-            phone: phone,
-            address: address,
-            device: device,
-            model: model,
-            isReset: isReset,
-            isWorking: isWorking,
-            isSanitized: isSanitized,
-        })
-        .then(() => {
-            alert('Donation confirmed')
-        })
-        .catch((error) => {
-            alert(error.message)
-        })
+        if(valid) {
+            // db.collection('organizations'). -> received++
+            db.collection('donations').add(
+                donationInfo
+            )
+            /*
+            .then(() => {
+                //alert("Donation confirmed")
+                return <Redirect to={ROUTES.DONATION_CONFIRM}/>
+            })
+            .catch((error) => {
+                alert(error.message)
+            })
+            */
 
-        setFname('')
-        setLname('')
-        setPhone('')
-        setAddress('')
-        setDevice('')
-        setModel('')
-        setIsReset(false)
-        setIsWorking(false)
-        setIsSanitized(false)
+            setFname('')
+            setLname('')
+            setPhone('')
+            setAddress('')
+            setDevice('')
+            setModel('')
+            setIsReset(false)
+            setIsWorking(false)
+            setIsSanitized(false)
+            setRedirect(true)
+        } else {
+            alert("Please provide all required information and confirm your device is in proper condition")
+        }
+    }
+
+    if (redirect) {
+        return <Redirect to={ROUTES.DONATION_CONFIRM}/>
     }
 
     return (
         <div className = "form-flex">
             <form className = "form" onSubmit={handleSubmit}>
-            <h1>Donate Device to: {org.name}</h1>
+            <h1>Donating to: {org.name}</h1>
 
                 <div className = "names">
                     <label>
@@ -119,10 +147,10 @@ import './donationForm.css'
                         <label>
                             <div className ="label-text">Device type:</div>
                             <select id="myList" value={device} onChange={(e) => setDevice(e.target.value)}>
-                                <option value="0">Select device type</option>
-                                <option value="1">Phone</option>
-                                <option value="2">Laptop</option>
-                                <option value="3">Tablet</option>
+                                <option value="">Select device type</option>
+                                <option value="Phone">Phone</option>
+                                <option value="Laptop">Laptop</option>
+                                <option value="Tablet">Tablet</option>
                             </select>
                         </label>
                     </div>

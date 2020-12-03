@@ -1,8 +1,8 @@
 import React, { Component }  from 'react'
 import { db } from '../firebase'
-import { Card, Button } from "react-bootstrap"
-import * as ROUTES from '../../constants/routes';
-import { Link } from 'react-router-dom';
+import { Card } from "react-bootstrap"
+import * as ROUTES from '../../constants/routes'
+import { Link } from 'react-router-dom'
 import './browseOrgs.css'
 
 class BrowseOrgs extends Component {
