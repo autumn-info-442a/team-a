@@ -58,17 +58,8 @@ import './donationForm.css'
             db.collection('donations').add(
                 donationInfo
             )
-            /*
-            .then(() => {
-                //alert("Donation confirmed")
-                return <Redirect to={ROUTES.DONATION_CONFIRM}/>
-            })
-            .catch((error) => {
-                alert(error.message)
-            })
-            */
 
-            setFname('')
+            /*setFname('')
             setLname('')
             setPhone('')
             setAddress('')
@@ -76,15 +67,18 @@ import './donationForm.css'
             setModel('')
             setIsReset(false)
             setIsWorking(false)
-            setIsSanitized(false)
+            setIsSanitized(false)*/
             setRedirect(true)
+
         } else {
             alert("Please provide all required information and confirm your device is in proper condition")
         }
     }
 
+    // redirect to confirmation page
     if (redirect) {
-        return <Redirect to={ROUTES.DONATION_CONFIRM}/>
+        return <Redirect to={{ pathname: ROUTES.DONATION_CONFIRM, 
+                                state: {org: org, donation: donationInfo}}}/>
     }
 
     return (
