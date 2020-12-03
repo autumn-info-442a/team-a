@@ -1,14 +1,14 @@
-h1, h4, p {
+.confirm-donation.h1, .confirm-donation.h4, .confirm-donation.p {
   margin-left: 15.9%;
 }
 
-h1 {
+.confirm-donation.h1 {
   font-size: 1.3vw;
   font-weight: 600;
   padding: 1% 0%;
 }
 
-h4, p {
+.confirm-donation.h4, .confirm-donation.p {
   font-size: 0.9vw;
 }
 
@@ -20,7 +20,7 @@ p.instructions {
   padding-top: 0.8%;
 }
 
-a {
+.confirm-donation.a {
     text-decoration: underline;
     color: #0000EE;
 }

@@ -17,7 +17,7 @@ const DonationConfirm = (props) => {
     }
 
     return (
-    <div>
+    <div className="confirm-donation">
         <h1>Thank you for donating your {donation.model}</h1>
         <h4><strong>Please ship your donation to:</strong></h4>
         <p className="org-details">
