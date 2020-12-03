@@ -1,16 +1,16 @@
 import React, { Component }  from 'react'
 import { db } from '../firebase'
 import { Card, Button } from "react-bootstrap"
+import * as ROUTES from '../../constants/routes';
+import { Link } from 'react-router-dom';
 import './browseOrgs.css'
-// import { Container, Row, Col } from 'reactstrap'
-// import OrgCard from './orgCard'
 
 class BrowseOrgs extends Component {
     constructor() {
         super()
 
         this.state = {
-            orgs: []
+            orgs: [],
         }
     }
 
@@ -22,10 +22,11 @@ class BrowseOrgs extends Component {
                 const orgs = []
                 snapshot.forEach( doc => {
                     const data = doc.data()
+                    // filter data
                     orgs.push(data)
                 })
                 this.setState({ orgs: orgs })
-                console.log(orgs)
+                //console.log(orgs)
             })
     }
 
@@ -43,7 +44,9 @@ class BrowseOrgs extends Component {
                     <Card.Text className="address"><strong>Address: </strong>{card.address}</Card.Text>
                     <Card.Text className="devices"><strong>Devices needed: </strong>{card.needs} </Card.Text>
                     <Card.Text className="description">{card.description}</Card.Text>
-                    <Button variant="primary">Donate</Button>
+                    <a class="btn btn-primary" href="#" role="button">
+                        <Link to={{pathname: ROUTES.DONATION, state: {org: card}}} id="donate">Donate</Link>
+                    </a>
                     </Card.Body>
                 </Card>
             )

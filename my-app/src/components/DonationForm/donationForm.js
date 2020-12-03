@@ -1,8 +1,15 @@
-import React, { Component, useState } from 'react'
+import React, { useState } from 'react'
 import { db } from '../firebase'
 import './donationForm.css'
 
-const Donation = () => {
+ const DonationForm = (props) => {
+    var org = {name: ""}
+
+    if(props.location.state.org) {
+        org = props.location.state.org
+        console.log(org)
+    }
+
     const [fname, setFname] = useState("")
     const [lname, setLname] = useState("")
     const [phone, setPhone] = useState("")
@@ -55,7 +62,7 @@ const Donation = () => {
     return (
         <div className = "form-flex">
             <form className = "form" onSubmit={handleSubmit}>
-                <h1>Donate Device</h1>
+            <h1>Donate Device to: {org.name}</h1>
 
                 <div className = "names">
                     <label>
@@ -157,4 +164,4 @@ const Donation = () => {
     )
 }
 
-export default Donation
+export default DonationForm
