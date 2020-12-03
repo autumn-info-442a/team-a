@@ -44,8 +44,14 @@
 */
 
 .btn-primary {
-    background-color: #555555;
-    border: none;
+  background-color: #555555;
+  border: none;
+  text-decoration: none;
+}
+
+a#donate {
+  color: white;
+  text-decoration: none;
 }
 
 /*
