@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { db } from '../firebase'
-import * as ROUTES from '../../constants/routes';
+import * as ROUTES from '../../constants/routes'
 import { Redirect } from 'react-router-dom'
 import './donationForm.css'
 
