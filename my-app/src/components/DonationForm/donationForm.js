@@ -37,8 +37,8 @@ import './donationForm.css'
     const handleClickIsSanitized = () => setIsSanitized(!isSanitized)
 
     // form validation
-    var noBlanks = (fname != "" && lname != "" && phone != "" && address != "" 
-                        && device != "" && model != "")
+    var noBlanks = (fname !== "" && lname !== "" && phone !== "" && address !== "" 
+                        && device !== "" && model !== "")
     var properCondition = (isReset && isWorking && isSanitized)
     var valid = noBlanks && properCondition
     
