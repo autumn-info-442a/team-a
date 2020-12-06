@@ -6,10 +6,14 @@ import './donationForm.css'
 
  const DonationForm = (props) => {
     var org = {name: ""}
+    var orgID = ""
+    var orgReceived = 0
 
     if(props.location.state.org) {
+        // pass organization data in
         org = props.location.state.org
-        //console.log(org)
+        orgID = org.id
+        orgReceived = org.received
     }
 
     const [redirect, setRedirect] = useState(false)
@@ -54,29 +58,21 @@ import './donationForm.css'
         e.preventDefault()
 
         if(valid) {
-            // db.collection('organizations'). -> received++
+            // add donation to database
             db.collection('donations').add(
                 donationInfo
             )
-
-            /*setFname('')
-            setLname('')
-            setPhone('')
-            setAddress('')
-            setDevice('')
-            setModel('')
-            setIsReset(false)
-            setIsWorking(false)
-            setIsSanitized(false)*/
+            // update received value for the organization by +1
+            db.collection('organizations').doc(orgID).update({ received: orgReceived + 1})
             setRedirect(true)
-
         } else {
+            // form validation
             alert("Please provide all required information and confirm your device is in proper condition")
         }
     }
 
-    // redirect to confirmation page
     if (redirect) {
+        // redirect to confirmation page
         return <Redirect to={{ pathname: ROUTES.DONATION_CONFIRM, 
                                 state: {org: org, donation: donationInfo}}}/>
     }
