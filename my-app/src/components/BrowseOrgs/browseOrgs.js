@@ -21,8 +21,11 @@ class BrowseOrgs extends Component {
             .then(snapshot => {
                 const orgs = []
                 snapshot.forEach( doc => {
+                    const id = doc.id
                     const data = doc.data()
-                    // filter data
+                    data.id = id
+
+                    // TO-DO: filter data
                     orgs.push(data)
                 })
                 this.setState({ orgs: orgs })
