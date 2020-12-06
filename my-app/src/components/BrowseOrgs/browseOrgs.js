@@ -1,6 +1,7 @@
 import React, { Component }  from 'react'
 import { db } from '../firebase'
 import { Card } from "react-bootstrap"
+import SearchBar from "./SearchBar"
 import * as ROUTES from '../../constants/routes'
 import { Link } from 'react-router-dom'
 import './browseOrgs.css'
@@ -13,6 +14,7 @@ class BrowseOrgs extends Component {
 
         this.state = {
             orgs: [],
+            searchField: ""
         }
     }
 
@@ -26,8 +28,6 @@ class BrowseOrgs extends Component {
                     const id = doc.id
                     const data = doc.data()
                     data.id = id
-
-                    // TO-DO: filter data
                     orgs.push(data)
                 })
                 this.setState({ orgs: orgs })
@@ -37,7 +37,18 @@ class BrowseOrgs extends Component {
 
     render() {
         const orgs = this.state.orgs
-
+        const searchField = this.state.searchField
+        
+        var filtered = []
+        // filter the data by organization name & search bar
+        orgs.forEach( org => {
+            const orgName = org.name
+            if(orgName.toLowerCase().includes(searchField.toLowerCase())) {
+                filtered.push(org)
+            }
+        })
+        console.log("searchField:", searchField, "filtered:", filtered)
+        
         const renderCard = (card, index) => {
             return (
                 <Card key={index} className="box">
@@ -58,7 +69,15 @@ class BrowseOrgs extends Component {
         }
 
         return (
-        <div className="grid">{orgs.map(renderCard)}</div>
+        <div>
+            <div>
+                <SearchBar 
+                handleChange={(e) => this.setState({searchField: e.target.value})}
+                />
+            </div>
+            <div className="grid">{filtered.map(renderCard)}</div>
+        </div>
+        
         )
     }
 
