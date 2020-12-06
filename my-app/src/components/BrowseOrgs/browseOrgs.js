@@ -29,7 +29,10 @@ class BrowseOrgs extends Component {
                     const id = doc.id
                     const data = doc.data()
                     data.id = id
-                    orgs.push(data)
+
+                    if(data.received < data.goal) {
+                        orgs.push(data)
+                    }
                 })
                 this.setState({ orgs: orgs })
                 //console.log(orgs)
