@@ -14,7 +14,8 @@ class BrowseOrgs extends Component {
 
         this.state = {
             orgs: [],
-            searchField: ""
+            searchField: "",
+            selectType: ""
         }
     }
 
@@ -38,16 +39,16 @@ class BrowseOrgs extends Component {
     render() {
         const orgs = this.state.orgs
         const searchField = this.state.searchField
+        const selectType = this.state.selectType
         
         var filtered = []
-        // filter the data by organization name & search bar
+        // filter the data by org name (search bar) and org type (dropdown)
         orgs.forEach( org => {
-            const orgName = org.name
-            if(orgName.toLowerCase().includes(searchField.toLowerCase())) {
+            if(org.name.toLowerCase().includes(searchField.toLowerCase())
+                && org.needs.includes(selectType)) {
                 filtered.push(org)
             }
         })
-        console.log("searchField:", searchField, "filtered:", filtered)
         
         const renderCard = (card, index) => {
             return (
@@ -71,9 +72,17 @@ class BrowseOrgs extends Component {
         return (
         <div>
             <div>
-                <SearchBar 
-                handleChange={(e) => this.setState({searchField: e.target.value})}
-                />
+                <SearchBar handleChange={(e) => this.setState({searchField: e.target.value})}/>
+                <label>
+                    <div className ="label-text">Filter by device type needed:</div>
+                        <select id="myList" value={this.state.selectType} onChange={(e) => this.setState({selectType: e.target.value})}>
+                            <option value="">Select device type</option>
+                            <option value="phones">Phone</option>
+                            <option value="laptops">Laptop</option>
+                            <option value="tablets">Tablet</option>
+                        </select>
+                </label>
+
             </div>
             <div className="grid">{filtered.map(renderCard)}</div>
         </div>
