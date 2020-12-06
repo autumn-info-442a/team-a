@@ -1,5 +1,8 @@
 import React from 'react'
+import { db } from '../firebase'
 import './donationConfirm.css'
+
+// TO-DO: cancel button --> org.received -1
 
 const DonationConfirm = (props) => {
     var org = {}
