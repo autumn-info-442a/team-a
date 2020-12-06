@@ -2,6 +2,8 @@ import React, { Component, useState } from 'react'
 import './submitOrg.css'
 import { db } from '../firebase'
 
+// TO-DO: form validation
+
 const Organization = () => {
     const [name, setName] = useState("")
     const [type, setType] = useState("")

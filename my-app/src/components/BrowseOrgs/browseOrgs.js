@@ -5,6 +5,8 @@ import * as ROUTES from '../../constants/routes'
 import { Link } from 'react-router-dom'
 import './browseOrgs.css'
 
+// TO-DO: search/type filter
+
 class BrowseOrgs extends Component {
     constructor() {
         super()
