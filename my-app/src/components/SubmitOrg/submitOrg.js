@@ -13,10 +13,8 @@ const Organization = () => {
 
     const [needPhone, setNeedPhone] = useState(false)
     const handleClickPhone = () => setNeedPhone(!needPhone)
-
     const [needLaptop, setNeedLaptop] = useState(false)
     const handleClickLaptop = () => setNeedLaptop(!needLaptop)
-
     const [needTablet, setNeedTablet] = useState(false)
     const handleClickTablet = () => setNeedTablet(!needTablet)
 
@@ -28,45 +26,103 @@ const Organization = () => {
     else if (needPhone) {deviceNeeds = "phones"}
     else if(needLaptop) {deviceNeeds = "laptops"}
     else if(needTablet) {deviceNeeds = "tablets"}
-    
 
     const [goal, setGoal] = useState(0)
     const [description, setDescription] = useState("")
 
+    // form validation
+    const [nameError, setNameError] = useState("")
+    const [typeError, setTypeError] = useState("")
+    const [addressError, setAddressError] = useState("")
+    const [phoneError, setPhoneError] = useState("")
+    const [emailError, setEmailError] = useState("")
+    const [needsError, setNeedsError] = useState("")
+    const [goalError, setGoalError] = useState("")
+    const [descriptionError, setDescriptionError] = useState("")
+
+    const validate = () => {
+        var validName = (name !== "")
+        if (!validName) {setNameError("Invalid name")
+        } else {setNameError("")}
+
+        var validType = (type !== "")
+        if (!validType) {setTypeError("Invalid type")
+        } else {setTypeError("")}
+
+        var validAddress = (address !== "")
+        if (!validAddress) {setAddressError("Invalid address")
+        } else {setAddressError("")}
+
+        var validPhone = (phone !== "")
+        if (!validPhone) {setPhoneError("Invalid phone")
+        } else {setPhoneError("")}
+
+        var validEmail = (email !== "")
+        if (!validEmail) {setEmailError("Invalid email")
+        } else {setEmailError("")}
+
+        var validNeed = (deviceNeeds !== "")
+        if (!validNeed) {setNeedsError("Please select at least one option")
+        } else {setNeedsError("")}
+
+        var validGoal = (goal > 0)
+        if (!validGoal) {setGoalError("Goal must be greater than 0")
+        } else {setGoalError("")}
+
+        var validDescription = (description !== "")
+        if (!validDescription) {setDescriptionError("Invalid description")
+        } else {setDescriptionError("")}       
+
+        var valid = (validName && validType && validAddress && validPhone
+            && validEmail && validNeed && validGoal && validDescription)
+        console.log("valid:", valid)
+
+        return valid
+    }
+
     const handleSubmit = (e) => {
     e.preventDefault()
 
-    db.collection('organizations').add({
-        name: name,
-        type: type,
-        address: address,
-        phone: phone,
-        email: email,
-        needs: deviceNeeds,
-        //needPhone: needsPhone,
-        //needLaptop: needLaptop,
-        //needTablet: needTablet,
-        goal: parseInt(goal),
-        received: 0,
-        description: description,
-    })
-    .then(() => {
-        alert('Organization has been submitted')
-    })
-    .catch((error) => {
-        alert(error.message)
-    })
+    // form validation
+    var isValid = validate()
+    console.log("isValid:", isValid)
 
-    setName('')
-    setType('')
-    setAddress('')
-    setPhone('')
-    setEmail('')
-    setNeedPhone(false)
-    setNeedLaptop(false)
-    setNeedTablet(false)
-    setGoal(0)
-    setDescription('')
+    if(isValid) {
+        console.log("form submitted")
+        /*
+        // send data to database
+        db.collection('organizations').add({
+            name: name,
+            type: type,
+            address: address,
+            phone: phone,
+            email: email,
+            needs: deviceNeeds,
+            goal: parseInt(goal),
+            received: 0,
+            description: description,
+        })
+        .then(() => {
+            alert('Organization has been submitted')
+        })
+        .catch((error) => {
+            alert(error.message)
+        })*/
+
+        setName('')
+        setType('')
+        setAddress('')
+        setPhone('')
+        setEmail('')
+        setNeedPhone(false)
+        setNeedLaptop(false)
+        setNeedTablet(false)
+        setGoal(0)
+        setDescription('')
+    } else {
+        console.log("form not submitted")
+    }
+    
 }
 
 
@@ -79,13 +135,17 @@ const Organization = () => {
                     <div className = "form-row">
                         <label>
                             <div className ="label-text">What is your organization?</div>
-                            <input 
+                            <input
                                 type = "text"
                                 id = "name"
                                 placeholder="Organization name"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                             />
+
+                            <div style={{ fontSize: 12, color: "red" }}>
+                                {nameError}
+                            </div>
                         </label>
                     </div>
 
@@ -99,6 +159,9 @@ const Organization = () => {
                                 <option value="Occupational">Occupational</option>
                                 <option value="Military">Military</option>
                             </select>
+                            <div style={{ fontSize: 12, color: "red" }}>
+                                {typeError}
+                            </div>
                         </label>
                     </div>
                 </div>
@@ -113,6 +176,9 @@ const Organization = () => {
                             value={address}
                             onChange={(e) => setAddress(e.target.value)}
                         />
+                        <div style={{ fontSize: 12, color: "red" }}>
+                            {addressError}
+                        </div>
                     </label>
                 </div>
 
@@ -126,6 +192,9 @@ const Organization = () => {
                             value={phone}
                             onChange={(e) => setPhone(e.target.value)}
                         />
+                        <div style={{ fontSize: 12, color: "red" }}>
+                            {phoneError}
+                        </div>
                     </label>
                 </div>
 
@@ -139,6 +208,9 @@ const Organization = () => {
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
+                        <div style={{ fontSize: 12, color: "red" }}>
+                            {emailError}
+                        </div>
                     </label>
                 </div>
 
@@ -149,6 +221,9 @@ const Organization = () => {
                             <span id="type"><input onClick={handleClickPhone} checked={needPhone} type="checkbox" /> Phones</span>
                             <span id="type"><input onClick={handleClickLaptop} checked={needLaptop} type="checkbox" /> Laptops</span>
                             <span id="type"><input onClick={handleClickTablet} checked={needTablet} type="checkbox" /> Tablets</span>
+                        </div>
+                        <div style={{ fontSize: 12, color: "red" }}>
+                            {needsError}
                         </div>
                     </label>
                 </div>
@@ -163,6 +238,9 @@ const Organization = () => {
                             value={goal}
                             onChange={(e) => setGoal(e.target.value)}
                         />
+                        <div style={{ fontSize: 12, color: "red" }}>
+                            {goalError}
+                        </div>
                     </label>
                 </div>
 
@@ -175,6 +253,9 @@ const Organization = () => {
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
                         />
+                        <div style={{ fontSize: 12, color: "red" }}>
+                            {descriptionError}
+                        </div>
                     </label>
                 </div>
 
