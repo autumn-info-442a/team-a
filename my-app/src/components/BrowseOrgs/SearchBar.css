@@ -1,0 +1,13 @@
+/* const BarStyling = 
+{width:"20rem", background:"#F2F1F9", border:"none", padding:"0.5rem"} */
+
+input[type="search"] {
+    width: 42.3vw;
+    border-width: 1px;
+    border-radius: 3px;
+    border-color: rgba(0,0,0,.125);
+    padding: 0.5vw 0.5vw 0.5vw 1.6vw;
+    margin-left: 15.8vw;
+    font-size: 0.9vw;
+}
+
