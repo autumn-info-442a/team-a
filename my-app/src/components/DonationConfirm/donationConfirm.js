@@ -64,8 +64,10 @@ const DonationConfirm = (props) => {
             If you need assistance on how to prepare and ship your package, 
             please look at instructions from <a href="https://www.fedex.com/en-us/shipping/how-to-ship.html">Fedex</a> or <a href="https://www.usps.com/ship/packages.htm">UPS</a>.
         </p>
-        <button onClick={cancelDonation}>Cancel Donation</button>
-        <button onClick={backToBrowse}>Back to Browse</button>
+        <div id="confirm-buttons">
+            <button className="cancel-button" onClick={cancelDonation}>Cancel Donation</button>
+            <button className="browse-button" onClick={backToBrowse}>Back to Browse</button>
+        </div>
     </div>
     
     )
