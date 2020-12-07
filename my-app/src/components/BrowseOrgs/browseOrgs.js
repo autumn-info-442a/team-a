@@ -70,7 +70,7 @@ class BrowseOrgs extends Component {
                     <Card.Text className="devices"><strong>Devices needed: </strong>{card.needs} </Card.Text>
                     <Card.Text className="description">{card.description}</Card.Text>
                     <ProgressBar now={progress} label={`${progress}%`}/>
-                    <Card.Text className="details">Received {card.received} devices of {card.goal} donation goal</Card.Text>
+                    <Card.Text className="progress-text">Received <strong>{card.received}</strong> devices of <strong>{card.goal}</strong> donation goal</Card.Text>
                     <a class="btn btn-primary" href="#" role="button">
                         <Link to={{pathname: ROUTES.DONATION, state: {org: card}}} id="donate">Donate</Link>
                     </a>
@@ -82,11 +82,11 @@ class BrowseOrgs extends Component {
         return (
         <div>
             <div>
+                <h1 className="find-org">Find an organization to donate to</h1>
                 <SearchBar handleChange={(e) => this.setState({searchField: e.target.value})}/>
-                
+
                 <label>
-                    <div className ="label-text">Filter by organization type:</div>
-                        <select id="myList" value={this.state.selectOrgType} onChange={(e) => this.setState({selectOrgType: e.target.value})}>
+                        <select id="mySearch" value={this.state.selectOrgType} onChange={(e) => this.setState({selectOrgType: e.target.value})}>
                             <option value="">Select organization type</option>
                             <option value="Medical">Medical</option>
                             <option value="Educational">Educational</option>
@@ -95,10 +95,8 @@ class BrowseOrgs extends Component {
                             <option value="">All</option>
                         </select>
                 </label>
-
                 <label>
-                    <div className ="label-text">Filter by device type needed:</div>
-                        <select id="myList" value={this.state.selectDeviceType} onChange={(e) => this.setState({selectDeviceType: e.target.value})}>
+                        <select id="mySearch" value={this.state.selectDeviceType} onChange={(e) => this.setState({selectDeviceType: e.target.value})}>
                             <option value="">Select device type</option>
                             <option value="phones">Phone</option>
                             <option value="laptops">Laptop</option>
