@@ -1,6 +1,6 @@
 import React, { Component }  from 'react'
 import { db } from '../firebase'
-import { Card } from "react-bootstrap"
+import { Card, ProgressBar } from "react-bootstrap"
 import SearchBar from "./SearchBar"
 import * as ROUTES from '../../constants/routes'
 import { Link } from 'react-router-dom'
@@ -29,7 +29,10 @@ class BrowseOrgs extends Component {
                     const id = doc.id
                     const data = doc.data()
                     data.id = id
-                    orgs.push(data)
+
+                    if(data.received < data.goal) {
+                        orgs.push(data)
+                    }
                 })
                 this.setState({ orgs: orgs })
                 //console.log(orgs)
@@ -51,6 +54,8 @@ class BrowseOrgs extends Component {
         })
         
         const renderCard = (card, index) => {
+            const progress = ((card.received / card.goal) * 100).toFixed(0)
+            console.log("progress", progress)
             return (
                 <Card key={index} className="box">
                     <Card.Body>
@@ -61,6 +66,8 @@ class BrowseOrgs extends Component {
                     <Card.Text className="address"><strong>Address: </strong>{card.address}</Card.Text>
                     <Card.Text className="devices"><strong>Devices needed: </strong>{card.needs} </Card.Text>
                     <Card.Text className="description">{card.description}</Card.Text>
+                    <ProgressBar now={progress} label={`${progress}%`}/>
+                    <Card.Text className="details">Received {card.received} devices of {card.goal} donation goal</Card.Text>
                     <a class="btn btn-primary" href="#" role="button">
                         <Link to={{pathname: ROUTES.DONATION, state: {org: card}}} id="donate">Donate</Link>
                     </a>
@@ -82,7 +89,6 @@ class BrowseOrgs extends Component {
                             <option value="tablets">Tablet</option>
                         </select>
                 </label>
-
             </div>
             <div className="grid">{filtered.map(renderCard)}</div>
         </div>
