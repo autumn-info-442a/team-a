@@ -1,13 +1,12 @@
 import React from "react"
+import './SearchBar.css'
 
 const SearchBar = (props) => {
-    const BarStyling = {width:"20rem", background:"#F2F1F9", border:"none", padding:"0.5rem"}
     return (
         <input
         type = "search"
         className = "search"
-        style = {BarStyling}
-        placeholder = {"search organization"}
+        placeholder = {"Search organization name"}
         onChange = {props.handleChange}
         />
     )
