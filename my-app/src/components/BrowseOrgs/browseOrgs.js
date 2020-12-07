@@ -37,7 +37,6 @@ class BrowseOrgs extends Component {
                     }
                 })
                 this.setState({ orgs: orgs })
-                //console.log(orgs)
             })
     }
 
@@ -59,7 +58,7 @@ class BrowseOrgs extends Component {
         
         const renderCard = (card, index) => {
             const progress = ((card.received / card.goal) * 100).toFixed(0)
-            console.log("progress", progress)
+
             return (
                 <Card key={index} className="box">
                     <Card.Body>
