@@ -54,7 +54,9 @@ import './donationForm.css'
         if (!validLname) {setLnameError("Last name cannot be blank")
         } else {setLnameError("")}
 
-        var validPhone = (phone !== "")
+        const phoneRegExp = /^[1-9][0-9]{2}[ \\-][0-9]{3}[ \\-][0-9]{4}$/
+
+        var validPhone = (phone !== "" && phoneRegExp.test(phone))
         if (!validPhone) {setPhoneError("Invalid phone (must be in format: 888-888-8888)")
         } else {setPhoneError("")}
 
@@ -160,6 +162,7 @@ import './donationForm.css'
                             type = "text"
                             id = "phone"
                             placeholder="888-888-8888"
+                            maxLength="12"
                             value={phone}
                             onChange={(e) => setPhone(e.target.value)}
                         />

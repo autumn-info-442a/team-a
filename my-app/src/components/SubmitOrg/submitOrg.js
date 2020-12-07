@@ -53,7 +53,9 @@ const Organization = () => {
         if (!validAddress) {setAddressError("Address cannot be blank")
         } else {setAddressError("")}
 
-        var validPhone = (phone !== "")
+        const phoneRegExp = /^[1-9][0-9]{2}[ \\-][0-9]{3}[ \\-][0-9]{4}$/
+
+        var validPhone = (phone !== "" && phoneRegExp.test(phone))
         if (!validPhone) {setPhoneError("Invalid phone (must be in format: 888-888-8888)")
         } else {setPhoneError("")}
 
@@ -182,6 +184,7 @@ const Organization = () => {
                             type = "text"
                             id = "phone"
                             placeholder="888-888-8888"
+                            maxLength="12"
                             value={phone}
                             onChange={(e) => setPhone(e.target.value)}
                         />
@@ -239,10 +242,11 @@ const Organization = () => {
 
                 <div className = "form-row">
                     <label>
-                        <div className ="label-text">Please provide a short description of the organization (100 words):</div>
+                        <div className ="label-text">Please provide a short description of the organization (500 characters):</div>
                         <textarea rows="6" cols="80"
                             id = "description"
                             placeholder="Description"
+                            maxLength="500"
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
                         />
