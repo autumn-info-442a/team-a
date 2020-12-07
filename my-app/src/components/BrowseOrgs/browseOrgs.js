@@ -15,7 +15,8 @@ class BrowseOrgs extends Component {
         this.state = {
             orgs: [],
             searchField: "",
-            selectType: ""
+            selectOrgType: "",
+            selectDeviceType: ""
         }
     }
 
@@ -42,13 +43,15 @@ class BrowseOrgs extends Component {
     render() {
         const orgs = this.state.orgs
         const searchField = this.state.searchField
-        const selectType = this.state.selectType
+        const selectOrgType = this.state.selectOrgType
+        const selectDeviceType = this.state.selectDeviceType
         
         var filtered = []
         // filter the data by org name (search bar) and org type (dropdown)
         orgs.forEach( org => {
             if(org.name.toLowerCase().includes(searchField.toLowerCase())
-                && org.needs.includes(selectType)) {
+                && org.type.includes(selectOrgType)
+                && org.needs.includes(selectDeviceType)) {
                 filtered.push(org)
             }
         })
@@ -80,13 +83,27 @@ class BrowseOrgs extends Component {
         <div>
             <div>
                 <SearchBar handleChange={(e) => this.setState({searchField: e.target.value})}/>
+                
+                <label>
+                    <div className ="label-text">Filter by organization type:</div>
+                        <select id="myList" value={this.state.selectOrgType} onChange={(e) => this.setState({selectOrgType: e.target.value})}>
+                            <option value="">Select organization type</option>
+                            <option value="Medical">Medical</option>
+                            <option value="Educational">Educational</option>
+                            <option value="Occupational">Occupational</option>
+                            <option value="Military">Military</option>
+                            <option value="">All</option>
+                        </select>
+                </label>
+
                 <label>
                     <div className ="label-text">Filter by device type needed:</div>
-                        <select id="myList" value={this.state.selectType} onChange={(e) => this.setState({selectType: e.target.value})}>
+                        <select id="myList" value={this.state.selectDeviceType} onChange={(e) => this.setState({selectDeviceType: e.target.value})}>
                             <option value="">Select device type</option>
                             <option value="phones">Phone</option>
                             <option value="laptops">Laptop</option>
                             <option value="tablets">Tablet</option>
+                            <option value="">All</option>
                         </select>
                 </label>
             </div>
