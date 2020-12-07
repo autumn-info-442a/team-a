@@ -54,7 +54,7 @@ const Organization = () => {
         } else {setAddressError("")}
 
         var validPhone = (phone !== "")
-        if (!validPhone) {setPhoneError("Invalid phone")
+        if (!validPhone) {setPhoneError("Invalid phone (must be in format: 888-888-8888)")
         } else {setPhoneError("")}
 
         var validEmail = (email !== "" && email.includes("@"))
@@ -81,43 +81,43 @@ const Organization = () => {
     }
 
     const handleSubmit = (e) => {
-    e.preventDefault()
+        e.preventDefault()
 
-    var isValid = validate()
-    if(isValid) {
-        // send data to database
-        db.collection('organizations').add({
-            name: name,
-            type: type,
-            address: address,
-            phone: phone,
-            email: email,
-            needs: deviceNeeds,
-            goal: parseInt(goal),
-            received: 0,
-            description: description,
-        })
-        .then(() => {
-            alert('Organization has been submitted')
-        })
-        .catch((error) => {
-            alert(error.message)
-        })
+        var isValid = validate()
+        if(isValid) {
+            // send data to database
+            db.collection('organizations').add({
+                name: name,
+                type: type,
+                address: address,
+                phone: phone,
+                email: email,
+                needs: deviceNeeds,
+                goal: parseInt(goal),
+                received: 0,
+                description: description,
+            })
+            .then(() => {
+                alert('Organization has been submitted')
+            })
+            .catch((error) => {
+                alert(error.message)
+            })
 
-        setName('')
-        setType('')
-        setAddress('')
-        setPhone('')
-        setEmail('')
-        setNeedPhone(false)
-        setNeedLaptop(false)
-        setNeedTablet(false)
-        setGoal(0)
-        setDescription('')
-    } else {
-        console.log("form not submitted")
+            setName('')
+            setType('')
+            setAddress('')
+            setPhone('')
+            setEmail('')
+            setNeedPhone(false)
+            setNeedLaptop(false)
+            setNeedTablet(false)
+            setGoal(0)
+            setDescription('')
+        } else {
+            console.log("form not submitted")
+        }
     }
-}
 
     return (
         <div className="form-flex">
