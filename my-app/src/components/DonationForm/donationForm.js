@@ -37,11 +37,51 @@ import './donationForm.css'
     const handleClickIsSanitized = () => setIsSanitized(!isSanitized)
 
     // form validation
-    var noBlanks = (fname !== "" && lname !== "" && phone !== "" && address !== "" 
-                        && device !== "" && model !== "")
-    var properCondition = (isReset && isWorking && isSanitized)
-    var valid = noBlanks && properCondition
-    
+    const [fnameError, setFnameError] = useState("")
+    const [lnameError, setLnameError] = useState("")
+    const [phoneError, setPhoneError] = useState("")
+    const [addressError, setAddressError] = useState("")
+    const [deviceError, setDeviceError] = useState("")
+    const [modelError, setModelError] = useState("")
+    const [conditionError, setConditionError] = useState("")
+
+    const validate = () => {
+        var validFname = (fname !== "")
+        if (!validFname) {setFnameError("First name cannot be blank")
+        } else {setFnameError("")}
+
+        var validLname = (lname !== "")
+        if (!validLname) {setLnameError("Last name cannot be blank")
+        } else {setLnameError("")}
+
+        const phoneRegExp = /^[1-9][0-9]{2}[ \\-][0-9]{3}[ \\-][0-9]{4}$/
+
+        var validPhone = (phone !== "" && phoneRegExp.test(phone))
+        if (!validPhone) {setPhoneError("Invalid phone (must be in format: 888-888-8888)")
+        } else {setPhoneError("")}
+
+        var validAddress = (address !== "")
+        if (!validAddress) {setAddressError("Address cannot be blank")
+        } else {setAddressError("")}
+
+        var validDevice = (device !== "" && org.needs.includes(device))
+        if (!validDevice) {setDeviceError("Please select a needed device type")
+        } else {setDeviceError("")}
+
+        var validModel = (model !== "")
+        if (!validModel) {setModelError("Device model cannot be blank")
+        } else {setModelError("")}
+
+        var validCondition = (isReset && isWorking && isSanitized)
+        if (!validCondition) {setConditionError("Please confirm your device is in proper condition")
+        } else {setConditionError("")}
+
+        var valid = (validFname && validLname && validPhone && validAddress
+            && validDevice && validModel && validCondition)
+
+        return valid
+    }
+
     // this object captures all information about the donation
     var donationInfo = {
         fname: fname,
@@ -59,7 +99,8 @@ import './donationForm.css'
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        if(valid) {
+        var isValid = validate()
+        if(isValid) {
             // add donation to database
             db.collection('donations').add(
                 donationInfo
@@ -68,7 +109,6 @@ import './donationForm.css'
             db.collection('organizations').doc(orgID).update({ received: orgReceived + 1})
             setRedirect(true)
         } else {
-            // form validation
             alert("Please provide all required information and confirm your device is in proper condition")
         }
     }
@@ -82,7 +122,8 @@ import './donationForm.css'
     return (
         <div className = "form-flex">
             <form className = "form" onSubmit={handleSubmit}>
-            <h1>Donating to: {org.name}</h1>
+            <h1> Donating to: {org.name} </h1>
+            <p> <em>needs: {org.needs}</em> </p>
 
                 <div className = "names">
                     <label>
@@ -94,6 +135,9 @@ import './donationForm.css'
                             value={fname}
                             onChange={(e) => setFname(e.target.value)}
                         />
+                        <div style={{ fontSize: 12, color: "red" }}>
+                            {fnameError}
+                        </div>
                     </label>
 
                     <label>
@@ -105,6 +149,9 @@ import './donationForm.css'
                             value={lname}
                             onChange={(e) => setLname(e.target.value)}
                         />
+                        <div style={{ fontSize: 12, color: "red" }}>
+                            {lnameError}
+                        </div>
                     </label>                   
                 </div>
 
@@ -115,9 +162,13 @@ import './donationForm.css'
                             type = "text"
                             id = "phone"
                             placeholder="888-888-8888"
+                            maxLength="12"
                             value={phone}
                             onChange={(e) => setPhone(e.target.value)}
                         />
+                        <div style={{ fontSize: 12, color: "red" }}>
+                            {phoneError}
+                        </div>
                     </label>
                 </div>
 
@@ -131,6 +182,9 @@ import './donationForm.css'
                             value={address}
                             onChange={(e) => setAddress(e.target.value)}
                         />
+                        <div style={{ fontSize: 12, color: "red" }}>
+                            {addressError}
+                        </div>
                     </label>
                 </div>
 
@@ -140,10 +194,13 @@ import './donationForm.css'
                             <div className ="label-text">Device type:</div>
                             <select id="myList" value={device} onChange={(e) => setDevice(e.target.value)}>
                                 <option value="">Select device type</option>
-                                <option value="Phone">Phone</option>
-                                <option value="Laptop">Laptop</option>
-                                <option value="Tablet">Tablet</option>
+                                <option value="phone">Phone</option>
+                                <option value="laptop">Laptop</option>
+                                <option value="tablet">Tablet</option>
                             </select>
+                            <div style={{ fontSize: 12, color: "red" }}>
+                                {deviceError}
+                            </div>
                         </label>
                     </div>
 
@@ -153,10 +210,13 @@ import './donationForm.css'
                             <input 
                                 type = "text"
                                 id = "model"
-                                placeholder="Device model"
+                                placeholder="e.g. iPhone 10"
                                 value={model}
                                 onChange={(e) => setModel(e.target.value)}
                             />
+                            <div style={{ fontSize: 12, color: "red" }}>
+                                {modelError}
+                            </div>
                         </label>
                     </div>
 
@@ -169,6 +229,9 @@ import './donationForm.css'
                             <span id="type"><input onClick={handleClickIsReset} checked={isReset} type="checkbox" />Device is factory reset</span>
                             <span id="type"><input onClick={handleClickIsWorking} checked={isWorking} type="checkbox" />Device is in working condition</span>
                             <span id="type"><input onClick={handleClickIsSanitized} checked={isSanitized} type="checkbox" />Device is properly sanitized</span>
+                        </div>
+                        <div style={{ fontSize: 12, color: "red" }}>
+                            {conditionError}
                         </div>
                     </label>
                 </div>
