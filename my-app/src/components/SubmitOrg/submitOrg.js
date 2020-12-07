@@ -42,35 +42,35 @@ const Organization = () => {
 
     const validate = () => {
         var validName = (name !== "")
-        if (!validName) {setNameError("Invalid name")
+        if (!validName) {setNameError("Name cannot be blank")
         } else {setNameError("")}
 
         var validType = (type !== "")
-        if (!validType) {setTypeError("Invalid type")
+        if (!validType) {setTypeError("Please select a type")
         } else {setTypeError("")}
 
         var validAddress = (address !== "")
-        if (!validAddress) {setAddressError("Invalid address")
+        if (!validAddress) {setAddressError("Address cannot be blank")
         } else {setAddressError("")}
 
         var validPhone = (phone !== "")
         if (!validPhone) {setPhoneError("Invalid phone")
         } else {setPhoneError("")}
 
-        var validEmail = (email !== "")
-        if (!validEmail) {setEmailError("Invalid email")
+        var validEmail = (email !== "" && email.includes("@"))
+        if (!validEmail) {setEmailError("Invalid email, must include '@'")
         } else {setEmailError("")}
 
         var validNeed = (deviceNeeds !== "")
         if (!validNeed) {setNeedsError("Please select at least one option")
         } else {setNeedsError("")}
 
-        var validGoal = (goal > 0)
+        var validGoal = (goal >= 1)
         if (!validGoal) {setGoalError("Goal must be greater than 0")
         } else {setGoalError("")}
 
         var validDescription = (description !== "")
-        if (!validDescription) {setDescriptionError("Invalid description")
+        if (!validDescription) {setDescriptionError("Description cannot be blank")
         } else {setDescriptionError("")}       
 
         var valid = (validName && validType && validAddress && validPhone
@@ -83,13 +83,8 @@ const Organization = () => {
     const handleSubmit = (e) => {
     e.preventDefault()
 
-    // form validation
     var isValid = validate()
-    console.log("isValid:", isValid)
-
     if(isValid) {
-        console.log("form submitted")
-        /*
         // send data to database
         db.collection('organizations').add({
             name: name,
@@ -107,7 +102,7 @@ const Organization = () => {
         })
         .catch((error) => {
             alert(error.message)
-        })*/
+        })
 
         setName('')
         setType('')
@@ -122,9 +117,7 @@ const Organization = () => {
     } else {
         console.log("form not submitted")
     }
-    
 }
-
 
     return (
         <div className="form-flex">
