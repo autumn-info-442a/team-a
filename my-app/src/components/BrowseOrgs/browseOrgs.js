@@ -7,8 +7,6 @@ import { Link } from 'react-router-dom'
 import CardColumns from 'react-bootstrap/CardColumns'
 import './browseOrgs.css'
 
-// TO-DO: search/type filter
-
 class BrowseOrgs extends Component {
     constructor() {
         super()
