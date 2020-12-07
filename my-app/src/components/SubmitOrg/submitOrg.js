@@ -115,7 +115,7 @@ const Organization = () => {
             setGoal(0)
             setDescription('')
         } else {
-            console.log("form not submitted")
+            alert("Please provide all required information and ensure proper formatting")
         }
     }
 
