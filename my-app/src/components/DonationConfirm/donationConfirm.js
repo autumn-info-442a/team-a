@@ -14,8 +14,6 @@ const DonationConfirm = (props) => {
         org = props.location.state.org
         orgID = org.id
         orgReceived = org.received + 1
-        console.log(orgReceived)
-        //console.log(org)
     }
 
     var donation = {}
@@ -23,7 +21,6 @@ const DonationConfirm = (props) => {
     if(props.location.state.donation) {
         // pass in donation data
         donation = props.location.state.donation
-        //console.log(donation)
     }
 
     const [redirect, setRedirect] = useState(false)

@@ -4,8 +4,6 @@ import * as ROUTES from '../../constants/routes'
 import { Redirect } from 'react-router-dom'
 import './donationForm.css'
 
-// TO-DO: form validation
-
  const DonationForm = (props) => {
     var org = {name: ""}
     var orgID = ""

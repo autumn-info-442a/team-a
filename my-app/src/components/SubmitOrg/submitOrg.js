@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 import './submitOrg.css'
 import { db } from '../firebase'
 
-// TO-DO: form validation
-
 const Organization = () => {
     const [name, setName] = useState("")
     const [type, setType] = useState("")
@@ -77,8 +75,7 @@ const Organization = () => {
 
         var valid = (validName && validType && validAddress && validPhone
             && validEmail && validNeed && validGoal && validDescription)
-        console.log("valid:", valid)
-
+            
         return valid
     }
 
