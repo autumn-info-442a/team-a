@@ -22,8 +22,10 @@ import './donationForm.css'
     const [lname, setLname] = useState("")
     const [phone, setPhone] = useState("")
     const [address, setAddress] = useState("")
-    const [device, setDevice] = useState("")
+    const [type, setType] = useState("")
     const [model, setModel] = useState("")
+    const [donation, setDonation] = useState([])
+    const [total, setTotal] = useState(0)
 
     const [isReset, setIsReset] = useState(false)
     const handleClickIsReset = () => setIsReset(!isReset)
@@ -34,13 +36,66 @@ import './donationForm.css'
     const [isSanitized, setIsSanitized] = useState(false)
     const handleClickIsSanitized = () => setIsSanitized(!isSanitized)
 
+    // device validation
+    const [typeError, setTypeError] = useState("")
+    const [modelError, setModelError] = useState("")
+
+    const validateDevice = () => {
+        var validType = (type !== "" && org.needs.includes(type))
+        if (!validType) {setTypeError("Please select a needed device type")
+        } else {setTypeError("")}
+
+        var validModel = (model !== "")
+        if (!validModel) {setModelError("Device model cannot be blank")
+        } else {setModelError("")}
+
+        return(validType && validModel)
+    }
+
+    const addDevice = (e) => {
+        e.preventDefault()
+        // validate device type + model
+        var isValidDevice = validateDevice()
+        if(isValidDevice) {
+            // add model to donation array
+            var donations = donation
+            donations.push(model)
+            var newTotal = donations.length
+            
+            setDonation(donations)
+            setTotal(newTotal)
+        }
+    }
+
+    const removeDevice = index => {
+        var donations = donation
+        donations.splice(index,1)
+        var newTotal = donations.length
+        setDonation(donations)
+        setTotal(newTotal)
+    }
+
+    const showDevice = (device, index) => {
+        return (
+        <div className="device-list">
+            <ul>
+                {device}
+                <a style={{ fontSize: 12, color: "blue" }}
+                    classname="remove" 
+                    onClick={() => removeDevice(index)}>
+                        remove
+                </a>
+            </ul> 
+        </div>
+        )
+    }
+
     // form validation
     const [fnameError, setFnameError] = useState("")
     const [lnameError, setLnameError] = useState("")
     const [phoneError, setPhoneError] = useState("")
     const [addressError, setAddressError] = useState("")
-    const [deviceError, setDeviceError] = useState("")
-    const [modelError, setModelError] = useState("")
+    const [donationError, setDonationError] = useState("")
     const [conditionError, setConditionError] = useState("")
 
     const validate = () => {
@@ -62,20 +117,16 @@ import './donationForm.css'
         if (!validAddress) {setAddressError("Address cannot be blank")
         } else {setAddressError("")}
 
-        var validDevice = (device !== "" && org.needs.includes(device))
-        if (!validDevice) {setDeviceError("Please select a needed device type")
-        } else {setDeviceError("")}
-
-        var validModel = (model !== "")
-        if (!validModel) {setModelError("Device model cannot be blank")
-        } else {setModelError("")}
+        var validDonation = (donation.length >= 1)
+        if(!validDonation) {setDonationError("Please add a device to donate")
+        } else {setDonationError("")}
 
         var validCondition = (isReset && isWorking && isSanitized)
         if (!validCondition) {setConditionError("Please confirm your device is in proper condition")
         } else {setConditionError("")}
 
         var valid = (validFname && validLname && validPhone && validAddress
-            && validDevice && validModel && validCondition)
+            && validDonation && validCondition)
 
         return valid
     }
@@ -86,8 +137,8 @@ import './donationForm.css'
         lname: lname,
         phone: phone,
         address: address,
-        device: device,
-        model: model,
+        donation: donation,
+        total: total,
         isReset: isReset,
         isWorking: isWorking,
         isSanitized: isSanitized,
@@ -103,8 +154,10 @@ import './donationForm.css'
             db.collection('donations').add(
                 donationInfo
             )
+
             // update received value for the organization by +1
-            db.collection('organizations').doc(orgID).update({ received: orgReceived + 1})
+            console.log("total", total)
+            db.collection('organizations').doc(orgID).update({ received: orgReceived + total})
             setRedirect(true)
         } else {
             alert("Please provide all required information and confirm your device is in proper condition")
@@ -118,6 +171,7 @@ import './donationForm.css'
     }
 
     return (
+
         <div className = "form-flex">
             <form className = "form" onSubmit={handleSubmit}>
             <h1> Donating to: {org.name} </h1>
@@ -190,14 +244,14 @@ import './donationForm.css'
                     <div className = "form-row">
                         <label>
                             <div className ="label-text">Device type:</div>
-                            <select id="myList" value={device} onChange={(e) => setDevice(e.target.value)}>
+                            <select id="myList" value={type} onChange={(e) => setType(e.target.value)}>
                                 <option value="">Select device type</option>
                                 <option value="phone">Phone</option>
                                 <option value="laptop">Laptop</option>
                                 <option value="tablet">Tablet</option>
                             </select>
                             <div style={{ fontSize: 12, color: "red" }}>
-                                {deviceError}
+                                {typeError}
                             </div>
                         </label>
                     </div>
@@ -217,7 +271,14 @@ import './donationForm.css'
                             </div>
                         </label>
                     </div>
+                    <button className="add-button" onClick={addDevice}>Add Device</button>
+                </div>
 
+                <div className = "donation-list">
+                    <div> Devices being donated: {donation.map(showDevice)} </div>
+                    <div style={{ fontSize: 12, color: "red" }}>
+                        <p> {donationError} </p>
+                    </div>
                 </div>
 
                 <div className = "form-row">
