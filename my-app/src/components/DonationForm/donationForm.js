@@ -79,12 +79,11 @@ import './donationForm.css'
     const showDevice = (device, index) => {
         return (
         <div className="device-list">
-            <ul>
+            <ul className="donation-summary">
                 {device}
-                <a style={{ fontSize: 12, color: "blue" }}
-                    classname="remove" 
+                <a classname="remove" 
                     onClick={() => removeDevice(index)}>
-                        remove
+                    Remove
                 </a>
             </ul> 
         </div>
@@ -275,10 +274,12 @@ import './donationForm.css'
                 </div>
 
                 <div className = "donation-list">
-                    <div> Devices being donated: {donation.map(showDevice)} </div>
+                    <label className="device-donations"> 
+                        Devices being donated: {donation.map(showDevice)} 
                     <div style={{ fontSize: 12, color: "red" }}>
-                        <p> {donationError} </p>
+                        {donationError}
                     </div>
+                    </label>
                 </div>
 
                 <div className = "form-row">
