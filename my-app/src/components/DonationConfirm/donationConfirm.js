@@ -10,7 +10,6 @@ const DonationConfirm = (props) => {
     if(props.location.state.donation) {
         // pass in donation data
         donation = props.location.state.donation
-        console.log(donation)
     }
     
     var org = {}
@@ -24,6 +23,7 @@ const DonationConfirm = (props) => {
         orgReceived = org.received + donation.total
     }
 
+    // display devices included in donation
     const showDevice = (device) => {
         return (
         <div className="device-list">
