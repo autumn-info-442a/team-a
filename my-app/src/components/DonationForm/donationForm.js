@@ -121,7 +121,7 @@ import './donationForm.css'
         <div className = "form-flex">
             <form className = "form" onSubmit={handleSubmit}>
             <h1> Donating to: {org.name} </h1>
-            <p> <em>needs: {org.needs}</em> </p>
+            <p className="org-needs"><em>Needs {org.needs}</em> </p>
 
                 <div className = "names">
                     <label>
