@@ -47,7 +47,7 @@ const DonationConfirm = (props) => {
     return (
     <div>
         <h1 className="thank-donator">Thank you for donating to {org.name}.</h1>
-        <h4 className="summary-label"><strong>Here is your donation summary:</strong></h4>
+        <h4 className="summary-label"><strong>Devices being donated:</strong></h4>
         <div>{donation.donation.map(showDevice)}</div>
         <h4 className="ship-label"><strong>Please ship your donation to:</strong></h4>
         <p className="org-details">
