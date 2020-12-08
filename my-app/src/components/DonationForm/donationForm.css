@@ -22,3 +22,44 @@ input#fname, input#lname {
 .requirement-types input[type="checkbox"] {
   margin-right: 0.5vw;
 }
+
+p.org-needs {
+  font-size: 0.9vw;
+  margin-left: -0.3vw;
+  margin-top: -1vw;
+  margin-bottom: 1vw;
+}
+
+button.add-button {
+  height: 1.5vw;
+  border: none;
+  font-size: 0.7vw;
+  margin-top: 1.45vw;
+  padding: 0vw 0.5vw;
+}
+
+.device-donations {
+  font-size: 0.9vw;
+  margin-left: -0.3vw;
+  margin-bottom: 1vw;
+}
+
+.donation-summary {
+  font-weight: 100;
+  padding-right: 1vw;
+  margin-top: 0.5vw;
+}
+
+.donation-summary a {
+  margin-left: 1vw;
+  font-size: 0.7vw;
+  color: white;
+  background-color: #555555;
+  padding: 0.2vw 0.6vw;
+  border-radius: 4px;
+}
+
+.donation-summary a:hover {
+  color: white;
+  background-color: red;
+}
