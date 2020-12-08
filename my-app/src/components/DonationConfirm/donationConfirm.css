@@ -1,4 +1,4 @@
-h1.thank-donator, h4.ship-label, p.org-details, p.instructions {
+h1.thank-donator, h4.ship-label, p.org-details, p.instructions, h4.summary-label {
   margin-left: 15.9%;
 }
 
@@ -6,10 +6,15 @@ h1.thank-donator {
   font-size: 1.3vw;
   font-weight: 600;
   padding: 1% 0%;
+  margin-bottom: 0%;
 }
 
-h4.ship-label, p.org-details, p.instructions {
+h4.ship-label, p.org-details, p.instructions, h4.summary-label {
   font-size: 0.9vw;
+}
+
+h4.ship-label {
+  padding-top: 1vw;
 }
 
 p.org-details {
@@ -50,4 +55,9 @@ a:visited {
 #confirm-buttons {
   margin-left: 15.9%;
   padding-top: 1vw;
+}
+
+.device-list {
+  font-size: 0.9vw;
+  margin-left: 17%;
 }
