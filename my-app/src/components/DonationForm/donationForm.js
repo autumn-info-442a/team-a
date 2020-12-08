@@ -64,6 +64,7 @@ import './donationForm.css'
             
             setDonation(donations)
             setTotal(newTotal)
+            setModel("")
         }
     }
 
@@ -155,8 +156,7 @@ import './donationForm.css'
                 donationInfo
             )
 
-            // update received value for the organization by +1
-            console.log("total", total)
+            // update received value for the organization by +total
             db.collection('organizations').doc(orgID).update({ received: orgReceived + total})
             setRedirect(true)
         } else {
