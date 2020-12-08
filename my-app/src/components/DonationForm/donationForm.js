@@ -65,6 +65,7 @@ import './donationForm.css'
             setDonation(donations)
             setTotal(newTotal)
             setModel("")
+            setDonationError("")
         }
     }
 
