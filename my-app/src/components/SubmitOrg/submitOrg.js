@@ -197,7 +197,7 @@ const Organization = () => {
                     </label>
                 </div>
 
-                <div className = "form-row">
+                <div className = "city-state">
                     <label>
                         <div className ="label-text">City:</div>
                         <input 
@@ -212,9 +212,7 @@ const Organization = () => {
                             {cityError}
                         </div>
                     </label>
-                </div>
-
-                <div className = "form-row">
+                    
                     <label>
                         <div className ="label-text">State:</div>
                         <input 

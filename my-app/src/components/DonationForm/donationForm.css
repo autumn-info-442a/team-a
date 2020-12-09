@@ -1,13 +1,13 @@
-.names {
+.names, .city-state {
   margin-left: -0.3%;
 }
 
-.names label, .device-type-model label {
+.names label, .device-type-model label, .city-state label {
   padding-right: 1.25vw;
   padding-bottom: 0.50%;
 }
 
-input#fname, input#lname {
+input#fname, input#lname, input#city, input#state {
   font-size:0.9vw;
 }
 

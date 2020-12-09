@@ -261,7 +261,7 @@ import './donationForm.css'
                     </label>
                 </div>
 
-                <div className = "form-row">
+                <div className = "city-state">
                     <label>
                         <div className ="label-text">City:</div>
                         <input 
@@ -276,9 +276,7 @@ import './donationForm.css'
                             {cityError}
                         </div>
                     </label>
-                </div>
 
-                <div className = "form-row">
                     <label>
                         <div className ="label-text">State:</div>
                         <input 
