@@ -22,6 +22,9 @@ import './donationForm.css'
     const [lname, setLname] = useState("")
     const [phone, setPhone] = useState("")
     const [address, setAddress] = useState("")
+    const [city, setCity] = useState("")
+    const [state, setState] = useState("")
+    const [zip, setZip] = useState("")
     const [type, setType] = useState("")
     const [model, setModel] = useState("")
     const [donation, setDonation] = useState([])
@@ -96,6 +99,9 @@ import './donationForm.css'
     const [lnameError, setLnameError] = useState("")
     const [phoneError, setPhoneError] = useState("")
     const [addressError, setAddressError] = useState("")
+    const [cityError, setCityError] = useState("")
+    const [stateError, setStateError] = useState("")
+    const [zipError, setZipError] = useState("")
     const [donationError, setDonationError] = useState("")
     const [conditionError, setConditionError] = useState("")
 
@@ -118,6 +124,18 @@ import './donationForm.css'
         if (!validAddress) {setAddressError("Address cannot be blank")
         } else {setAddressError("")}
 
+        var validCity = (city !== "")
+        if (!validCity) {setCityError("City cannot be blank")
+        } else {setCityError("")}
+
+        var validState = (state !== "")
+        if (!validState) {setStateError("State cannot be blank")
+        } else {setStateError("")}
+
+        var validZip = (zip !== "")
+        if (!validZip) {setZipError("Zip code cannot be blank")
+        } else {setZipError("")}
+
         var validDonation = (donation.length >= 1)
         if(!validDonation) {setDonationError("Please add a device to donate")
         } else {setDonationError("")}
@@ -137,7 +155,7 @@ import './donationForm.css'
         fname: fname,
         lname: lname,
         phone: phone,
-        address: address,
+        address: address + "," + city + "," + state + "," + zip,
         donation: donation,
         total: total,
         isReset: isReset,
@@ -184,6 +202,7 @@ import './donationForm.css'
                             type = "text"
                             id = "fname"
                             placeholder="First name"
+                            maxLength="25"
                             value={fname}
                             onChange={(e) => setFname(e.target.value)}
                         />
@@ -198,6 +217,7 @@ import './donationForm.css'
                             type = "text"
                             id = "lname"
                             placeholder="Last name"
+                            maxLength="25"
                             value={lname}
                             onChange={(e) => setLname(e.target.value)}
                         />
@@ -231,11 +251,63 @@ import './donationForm.css'
                             type = "text"
                             id = "address"
                             placeholder="Address"
+                            maxLength="50"
                             value={address}
                             onChange={(e) => setAddress(e.target.value)}
                         />
                         <div style={{ fontSize: 12, color: "red" }}>
                             {addressError}
+                        </div>
+                    </label>
+                </div>
+
+                <div className = "form-row">
+                    <label>
+                        <div className ="label-text">City:</div>
+                        <input 
+                            type = "text"
+                            id = "city"
+                            placeholder="City"
+                            maxLength="30"
+                            value={city}
+                            onChange={(e) => setCity(e.target.value)}
+                        />
+                        <div style={{ fontSize: 12, color: "red" }}>
+                            {cityError}
+                        </div>
+                    </label>
+                </div>
+
+                <div className = "form-row">
+                    <label>
+                        <div className ="label-text">State:</div>
+                        <input 
+                            type = "text"
+                            id = "state"
+                            placeholder="e.g. WA"
+                            maxLength="2"
+                            value={state}
+                            onChange={(e) => setState(e.target.value)}
+                        />
+                        <div style={{ fontSize: 12, color: "red" }}>
+                            {stateError}
+                        </div>
+                    </label>
+                </div>
+
+                <div className = "form-row">
+                    <label>
+                        <div className ="label-text">Zip code:</div>
+                        <input 
+                            type = "text"
+                            id = "zip"
+                            placeholder="Zip code"
+                            maxLength="10"
+                            value={zip}
+                            onChange={(e) => setZip(e.target.value)}
+                        />
+                        <div style={{ fontSize: 12, color: "red" }}>
+                            {zipError}
                         </div>
                     </label>
                 </div>
