@@ -155,7 +155,7 @@ import './donationForm.css'
         fname: fname,
         lname: lname,
         phone: phone,
-        address: address + "," + city + "," + state + "," + zip,
+        address: address + ", " + city + ", " + state + ", " + zip,
         donation: donation,
         total: total,
         isReset: isReset,
