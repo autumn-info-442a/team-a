@@ -152,6 +152,7 @@ const Organization = () => {
                                 type = "text"
                                 id = "name"
                                 placeholder="Organization name"
+                                maxLength="50"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                             />
@@ -186,6 +187,7 @@ const Organization = () => {
                             type = "text"
                             id = "address"
                             placeholder="Organization address"
+                            maxLength="50"
                             value={address}
                             onChange={(e) => setAddress(e.target.value)}
                         />
@@ -270,6 +272,7 @@ const Organization = () => {
                             type = "text"
                             id = "email"
                             placeholder="example@org.com"
+                            maxLength="50"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
@@ -300,6 +303,7 @@ const Organization = () => {
                             type = "number"
                             id = "goal"
                             placeholder="100"
+                            maxLength="9"
                             value={goal}
                             onChange={(e) => setGoal(e.target.value)}
                         />
@@ -311,11 +315,11 @@ const Organization = () => {
 
                 <div className = "form-row">
                     <label>
-                        <div className ="label-text">Please provide a short description of the organization (500 characters):</div>
+                        <div className ="label-text">Please provide a short description of the organization (300 characters):</div>
                         <textarea rows="6" cols="80"
                             id = "description"
                             placeholder="Description"
-                            maxLength="500"
+                            maxLength="300"
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
                         />

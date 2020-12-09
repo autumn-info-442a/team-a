@@ -335,6 +335,7 @@ import './donationForm.css'
                                 type = "text"
                                 id = "model"
                                 placeholder="e.g. iPhone 10"
+                                maxLength="50"
                                 value={model}
                                 onChange={(e) => setModel(e.target.value)}
                             />
