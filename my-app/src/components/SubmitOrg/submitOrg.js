@@ -6,6 +6,9 @@ const Organization = () => {
     const [name, setName] = useState("")
     const [type, setType] = useState("")
     const [address, setAddress] = useState("")
+    const [city, setCity] = useState("")
+    const [state, setState] = useState("")
+    const [zip, setZip] = useState("")
     const [phone, setPhone] = useState("")
     const [email, setEmail] = useState("")
 
@@ -32,6 +35,9 @@ const Organization = () => {
     const [nameError, setNameError] = useState("")
     const [typeError, setTypeError] = useState("")
     const [addressError, setAddressError] = useState("")
+    const [cityError, setCityError] = useState("")
+    const [stateError, setStateError] = useState("")
+    const [zipError, setZipError] = useState("")
     const [phoneError, setPhoneError] = useState("")
     const [emailError, setEmailError] = useState("")
     const [needsError, setNeedsError] = useState("")
@@ -50,6 +56,18 @@ const Organization = () => {
         var validAddress = (address !== "")
         if (!validAddress) {setAddressError("Address cannot be blank")
         } else {setAddressError("")}
+
+        var validCity = (city !== "")
+        if (!validCity) {setCityError("City cannot be blank")
+        } else {setCityError("")}
+
+        var validState = (state !== "")
+        if (!validState) {setStateError("State cannot be blank")
+        } else {setStateError("")}
+
+        var validZip = (zip !== "")
+        if (!validZip) {setZipError("Zip code cannot be blank")
+        } else {setZipError("")}
 
         const phoneRegExp = /^[1-9][0-9]{2}[ \\-][0-9]{3}[ \\-][0-9]{4}$/
 
@@ -88,7 +106,7 @@ const Organization = () => {
             db.collection('organizations').add({
                 name: name,
                 type: type,
-                address: address,
+                address: address + "," + city + "," + state + "," + zip,
                 phone: phone,
                 email: email,
                 needs: deviceNeeds,
@@ -106,6 +124,9 @@ const Organization = () => {
             setName('')
             setType('')
             setAddress('')
+            setCity('')
+            setState('')
+            setZip('')
             setPhone('')
             setEmail('')
             setNeedPhone(false)
@@ -170,6 +191,57 @@ const Organization = () => {
                         />
                         <div style={{ fontSize: 12, color: "red" }}>
                             {addressError}
+                        </div>
+                    </label>
+                </div>
+
+                <div className = "form-row">
+                    <label>
+                        <div className ="label-text">City:</div>
+                        <input 
+                            type = "text"
+                            id = "city"
+                            placeholder="City"
+                            maxLength="30"
+                            value={city}
+                            onChange={(e) => setCity(e.target.value)}
+                        />
+                        <div style={{ fontSize: 12, color: "red" }}>
+                            {cityError}
+                        </div>
+                    </label>
+                </div>
+
+                <div className = "form-row">
+                    <label>
+                        <div className ="label-text">State:</div>
+                        <input 
+                            type = "text"
+                            id = "state"
+                            placeholder="e.g. WA"
+                            maxLength="2"
+                            value={state}
+                            onChange={(e) => setState(e.target.value)}
+                        />
+                        <div style={{ fontSize: 12, color: "red" }}>
+                            {stateError}
+                        </div>
+                    </label>
+                </div>
+
+                <div className = "form-row">
+                    <label>
+                        <div className ="label-text">Zip code:</div>
+                        <input 
+                            type = "text"
+                            id = "zip"
+                            placeholder="Zip code"
+                            maxLength="10"
+                            value={zip}
+                            onChange={(e) => setZip(e.target.value)}
+                        />
+                        <div style={{ fontSize: 12, color: "red" }}>
+                            {zipError}
                         </div>
                     </label>
                 </div>
