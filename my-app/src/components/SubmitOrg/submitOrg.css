@@ -24,6 +24,19 @@ input, textarea {
   padding: 0% 1% 0%;
 }
 
+.city-state {
+  margin-left: -0.3%;
+}
+
+.city-state label {
+  padding-right: 1.25vw;
+  padding-bottom: 0.50%;
+}
+
+input#city, input#state {
+  font-size:0.9vw;
+}
+
 .form-flex button {
   background-color: #555555;
   color: white;
