@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { db } from '../firebase'
 import './donationConfirm.css'
 import * as ROUTES from '../../constants/routes'
 import { Redirect } from 'react-router-dom'
@@ -13,14 +12,10 @@ const DonationConfirm = (props) => {
     }
     
     var org = {}
-    var orgID = ""
-    var orgReceived = 0
 
     if(props.location.state.org) {
         // pass in organization data
         org = props.location.state.org
-        orgID = org.id
-        orgReceived = org.received + donation.total
     }
 
     // display devices included in donation
