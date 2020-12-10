@@ -1,7 +1,7 @@
 # Requirements
 
 ## General
-1. User-facing text on the website should be in English.
+1. User-facing text on the website should be in English. `complete`
 2. Users should only be able to enter western ascii characters into text boxes.
 3. The webpage is responsive to mobile devices and all components will fit within a standard mobile screen (360x640 px).
 4. From any page, a user should be able to get to any of the other main pages within a single click.
