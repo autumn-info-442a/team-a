@@ -106,7 +106,7 @@ const Organization = () => {
             db.collection('organizations').add({
                 name: name,
                 type: type,
-                address: address + "," + city + "," + state + "," + zip,
+                address: address + ", " + city + ", " + state + ", " + zip,
                 phone: phone,
                 email: email,
                 needs: deviceNeeds,
