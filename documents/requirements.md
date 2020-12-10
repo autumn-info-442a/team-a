@@ -4,7 +4,7 @@
 1. User-facing text on the website should be in English. `complete`
 2. Users should only be able to enter western ascii characters into text boxes. `complete`
 3. The webpage is responsive to mobile devices and all components will fit within a standard mobile screen (360x640 px). `revised`
-  - revised: *error messages are now in red text below the incomplete or invalid form fields to allow the user to more easily identify why they can't submit the form and what they can do to properly complete it.*
+  - revised: *we originally thought our intended users would not have access to computers but we were incorrect. Our target audience are people who want to donate devices, not those who are in need of them. Therefore, our web app does not have to be responsive.*
 4. From any page, a user should be able to get to any of the other main pages within a single click. `complete`
 5. Links will use standard colors for unvisited (#0000EE) and visited (#551A8B) links. `complete`
 
@@ -29,5 +29,6 @@
 
 ## Only valid form with completed fields can be submitted
 17. There should be error messages for incomplete or invalid input from the user with these entry fields highlighted in red. `revised`
+  - revised: *error messages are now in red text below the incomplete or invalid form fields to allow the user to more easily identify why they can't submit the form and what they can do to properly complete it.*
 18. Forms cannot be submitted if there are any error messages for incomplete or invalid input from the user. `complete`
 19. All fields on forms are required, the form cannot be submitted if there are any blank fields. `complete`
