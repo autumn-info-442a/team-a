@@ -4,6 +4,7 @@
 1. User-facing text on the website should be in English. `complete`
 2. Users should only be able to enter western ascii characters into text boxes. `complete`
 3. The webpage is responsive to mobile devices and all components will fit within a standard mobile screen (360x640 px). `revised`
+  - revised: *error messages are now in red text below the incomplete or invalid form fields to allow the user to more easily identify why they can't submit the form and what they can do to properly complete it.*
 4. From any page, a user should be able to get to any of the other main pages within a single click. `complete`
 5. Links will use standard colors for unvisited (#0000EE) and visited (#551A8B) links. `complete`
 
